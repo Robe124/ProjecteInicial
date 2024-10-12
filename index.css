@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+header {
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el menú */
+}
+
+nav ul li {
+  margin: 0 100px; /* Espaciado entre los elementos del menú */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none; /* Quita el subrayado */
+  font-weight: bold;
+}
+
+.background {
+  background-image: url('baking-delicious-pizza-with-wood-fired-oven.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh; /* Altura de la ventana */
+  position: relative; /* Necesario para el overlay */
+}
+
+.overlay {
+  color: white; /* Color del texto */
+  padding: 10px; /* Espaciado alrededor del texto */
+  text-align: center; /* Centra el texto */
+  border-radius: 10px; /* Bordes redondeados */
+  position: absolute; /* Para posicionarlo dentro del background */
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Ajuste del centrado */
+  font-size: 50px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+  padding: 20px; /* Espaciado alrededor del contenido principal */
+  background-color: #000000; /* Fondo claro para el contenido */
+}
+
+.about {
+  padding: 20px;
+  margin-top: 20px; /* Espaciado superior para separar secciones */
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #370900;
+  color: white;
+}
