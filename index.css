@@ -115,7 +115,6 @@ main {
   align-items: center;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
   border-radius: 15px;
   margin-top: 30px;
   position: relative;
@@ -131,11 +130,16 @@ footer {
   background-color: #370900;
 }
 
-#pizzasSobreNosotros {
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
-  width: 30%;
-  height: auto;
+#PastaPesto{
+  clip-path: polygon(100% 0, 38% 0, 0 100%, 100% 100%);
+  width: 19%;
+
 }
+
+#pizzasSobreNosotros {
+  clip-path: polygon(0 0, 86% 0, 58% 100%, 0 100%);
+  width: 40%;
+ }
 
  .pizza-image {
   width: 100%;
