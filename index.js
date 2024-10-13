@@ -1,11 +1,8 @@
 window.addEventListener('scroll', function() {
     const background = document.querySelector('.background');
     const scrollPosition = window.scrollY;
+    const threshold = 200;
 
-    // Umbral donde el difuminado comienza (puedes ajustarlo)
-    const threshold = 200; 
-
-    // Si se supera el umbral de desplazamiento, aplica la clase "blurred"
     if (scrollPosition > threshold) {
         background.classList.add('blurred');
     } else {
