@@ -1,17 +1,23 @@
 * { 
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  border: 2px solid rgb(122, 0, 0);  
+            padding: 5px;  
+            border-radius: 5px; 
 }
 
+#titol{
+  vertical-align: middle; 
+  margin: 10px;
+}
 html, body {
   height: 100%;
 }
 
 header {
-  background-color: black;
+  background-color: #0c0c0c;
   color: white;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 nav ul {
@@ -31,7 +37,12 @@ nav ul li a {
 }
 
 .background {
+<<<<<<< HEAD
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black), url('baking-delicious-pizza-with-wood-fired-oven.jpg');
+=======
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black), 
+              url('./img/baking-delicious-pizza-with-wood-fired-oven.jpg');
+>>>>>>> 01294952371ebabd4d9861931b3960f8eda0896e
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
