@@ -1,17 +1,27 @@
-* { 
+/* Reset de márgenes y padding */
+* {
   margin: 0;
   padding: 0;
-  border: 2px solid rgb(122, 0, 0);  
-            padding: 5px;  
-            border-radius: 5px; 
+  box-sizing: border-box;
 }
 
-#titol{
-  vertical-align: middle; 
-  margin: 10px;
+body {
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  background-color: #000000;
+  line-height: 1.6; /* Mejora la legibilidad */
 }
-html, body {
-  height: 100%;
+
+h2 {
+  font-family: 'Georgia', serif;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: 'Verdana', sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 header {
@@ -23,69 +33,143 @@ header {
 nav ul {
   list-style-type: none;
   display: flex;
-  justify-content: center; /* Centra horizontalmente el menú */
+  justify-content: center;
 }
 
 nav ul li {
-  margin: 0 100px; /* Espaciado entre los elementos del menú */
+  margin: 0 100px;
 }
 
 nav ul li a {
   color: white;
-  text-decoration: none; /* Quita el subrayado */
+  text-decoration: none;
+  font-family: 'Georgia', serif;
   font-weight: bold;
 }
 
 .background {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black), 
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black),
               url('./img/baking-delicious-pizza-with-wood-fired-oven.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
   height: 95vh;
   position: relative;
   transition: filter 0.5s ease, background-color 0.5s ease;
-  filter: blur(0px); /* Comienza sin difuminado */
-  background-color: transparent; /* Comienza transparente */
-  background-attachment: fixed; /* Evita el desplazamiento de la imagen con el contenido */
-}
-
-.background.blurred {
-  filter: blur(7px); /* Difumina la imagen */
-  background-color: black; /* Fondo negro al hacer scroll */
-}
-
-#CucinaItalian{
-  font-family:'Courier New', Courier, monospace;
+  filter: blur(0px);
 }
 
 .overlay {
-  color: white; /* Color del texto */
-  padding: 10px; /* Espaciado alrededor del texto */
-  text-align: center; /* Centra el texto */
-  border-radius: 10px; /* Bordes redondeados */
-  position: absolute; /* Para posicionarlo dentro del background */
-  top: 50%; /* Centrado vertical */
-  left: 50%; /* Centrado horizontal */
-  transform: translate(-50%, -50%); /* Ajuste del centrado */
-  font-size: 50px;
- }
-
-main {
-  padding: 20px; /* Espaciado alrededor del contenido principal */
-  background-color: #000000; /* Fondo oscuro */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.about {
+.Titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#Izquierda, #Derecha {
+  font-family: 'Georgia', serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.imagen {
+  max-width: 300px;
+  margin: 0 20px;
+}
+
+#Subtitulo {
+  font-size: 30px;
+  margin-left: 20px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+}
+
+main {
   padding: 20px;
-  margin-top: 20px; /* Espaciado superior para separar secciones */
-  color: white;
+}
+
+/* Ajuste de las secciones "about" y "services" */
+.about, .services {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 30px;
+  position: relative;
+  min-height: 300px;
+  gap: 20px; /* Añade espacio entre la imagen y el texto */
 }
 
 footer {
   text-align: center;
   padding: 10px 0;
   background-color: #370900;
+}
+
+#pizzasSobreNosotros {
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  width: 30%;
+  height: auto;
+}
+
+/* Imagen de la pizza recortada */
+.pizza-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
+
+/* Contenedor del texto alineado con la imagen */
+.text-container {
+  flex: 1.5;
+  padding: 20px;
+  background-color: #6D2C26;
+  border-radius: 10px;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Alineación horizontal de la imagen y el texto */
+.image-text-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que se ajusten en pantallas pequeñas */
+}
+
+.image-container {
+  flex: 1;
+  max-width: 45%; /* Ajusta el ancho máximo de la imagen */
+}
+
+.text-container {
+  flex: 1.5;
+  max-width: 50%; /* Ajusta el ancho máximo del texto */
+}
+
+h2 {
+  font-family: 'Georgia', serif;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: 'Verdana', sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
