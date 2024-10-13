@@ -132,14 +132,20 @@ footer {
 
 #PastaPesto{
   clip-path: polygon(100% 0, 38% 0, 0 100%, 100% 100%);
-  width: 19%;
+  width: 34%;
+  height: 316px;
 
 }
 
-#pizzasSobreNosotros {
+#Coliseo{
   clip-path: polygon(0 0, 86% 0, 58% 100%, 0 100%);
-  width: 40%;
- }
+  width: 47%;
+
+}
+#Restaurante{
+  clip-path: polygon(100% 0, 38% 0, 0 100%, 100% 100%);
+  width: 18%;
+}
 
  .pizza-image {
   width: 100%;
