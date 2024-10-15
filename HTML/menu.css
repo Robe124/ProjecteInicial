@@ -54,20 +54,20 @@ main {
   gap: 18px;
   justify-items: center;
   margin: 50px auto;
-  width: 70%;
+  width: 55%;
 }
 
 .circle {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+  border-radius: 20%;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   text-decoration: none;
 }
 
 .circle img {
-  width: 100%;
+  width: 162%;
   height: auto;
 }
 
@@ -76,4 +76,20 @@ footer {
   padding: 20px 0;
   background-color: #370900;
   position: relative;
+}
+
+#circle1 img{
+  margin-top: -8px;
+}
+
+#circle2 img{
+  margin-top: -7px;
+}
+
+#circle3 img{
+  margin-left: -60px;
+}
+
+#circle4 img{
+  margin-left: -60px;
 }
