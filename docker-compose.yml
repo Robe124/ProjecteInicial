@@ -1,0 +1,39 @@
+services:
+  frontend:
+    build: ./frontend  # Asegúrate de que esta ruta es correcta
+    ports:
+      - "80:80"
+    networks:
+      - anticaroma_network
+
+  backend:
+    build: ./backend  # Asegúrate de que esta ruta es correcta
+    ports:
+      - "8080:80"
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=restaurante_db
+    depends_on:
+      - mysql
+    networks:
+      - anticaroma_network
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: restaurante_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - anticaroma_network
+
+networks:
+  anticaroma_network:
+
+volumes:
+  db_data:
