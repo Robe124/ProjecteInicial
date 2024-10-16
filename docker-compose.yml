@@ -1,13 +1,13 @@
 services:
   frontend:
-    build: ./frontend  # Asegúrate de que esta ruta es correcta
+    build: ./frontend
     ports:
       - "80:80"
     networks:
       - anticaroma_network
 
   backend:
-    build: ./backend  # Asegúrate de que esta ruta es correcta
+    build: ./backend
     ports:
       - "8080:80"
     environment:
