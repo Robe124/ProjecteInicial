@@ -20,7 +20,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #63030356;
+  background-color: #370900e0;
   z-index: 1000;
 }
 
@@ -35,17 +35,26 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
+  padding: 10px 15px;
   font-family: 'Georgia', serif;
   font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+nav ul li a:hover {
+  background-color: rgba(255, 0, 0, 0.131);
+  color: #ffffff;
+  border-radius: 5px;
+}
+
 
 main {
   flex: 1;
   padding: 20px;
   background-color: #000000;
-  margin-top: 80px;
+  align-content: center;
 }
 
 .flex-container {

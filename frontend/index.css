@@ -29,15 +29,15 @@ header {
   position: fixed;  
   top: 0;          
   width: 100%;     
-  background-color: #63030356;  
-  z-index: 1000;  /*Hace que este por encima de todos los elementos*/
+  background-color: #370900e0;  
+  z-index: 1000;
 }
 
 nav{
-  position: fixed; /* Hace que la barra esté siempre fija */
-  top: 0;          /* La coloca en la parte superior */
-  width: 100%;     /* Hace que ocupe todo el ancho de la pantalla */
-  z-index: 1000;   /* Asegura que la barra esté por encima de otros elementos */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav ul {
@@ -52,10 +52,18 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
-   font-family: 'Georgia', serif;
-   font-weight: bold;
+  padding: 10px 15px;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 0, 0, 0.131);
+  color: #ffffff;
+  border-radius: 5px;
 }
 
 .background {
@@ -71,7 +79,6 @@ nav ul li a {
   background-color: transparent;
   background-attachment: fixed;
 }
-
 
 #CucinaItalian{
   font-family:'Courier New', Courier, monospace;
@@ -122,8 +129,6 @@ main {
 main {
   padding: 20px;
 }
-
- 
 
 .about, .services {
   display: flex;
@@ -240,8 +245,3 @@ p {
 .AnticaRoma{
   font-family: serif;
 }
-
-
- 
-
- 
