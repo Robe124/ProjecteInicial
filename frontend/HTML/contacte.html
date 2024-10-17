@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/CSS/contacte.css">
+    <link rel="stylesheet" href="/frontend/CSS/general.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">INICI</a></li>
+                <li><a href="./galeria.html">GALERIA</a></li>
+                <li><a href="./contacte.html">CONTACTE</a></li>
+                <li><a href="./Ubicacio.html">UBICACIÓ</a></li>
+            </ul>
+        </nav>
+    </header>
+ <div class="Formulario">
+        <h1>Contacta amb Antica Pizza</h1>
+        <form action="submit_form.php" method="POST">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+ 
+            <label for="telefono">Teléfono de contacto *</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Escribe tu número de teléfono" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Escribe tu correo electrónico" required>
+
+            <label for="asunto">Asunto *</label>
+            <input type="text" id="asunto" name="asunto" placeholder="Escribe el asunto" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

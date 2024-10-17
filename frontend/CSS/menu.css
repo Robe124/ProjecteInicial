@@ -13,42 +13,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-header {
-  color: white;
-  padding: 12px 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #370900e0;
-  z-index: 1000;
-}
-
-nav ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-}
-
-nav ul li {
-  margin: 0 100px;
-}
-
-nav ul li a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  padding: 10px 15px;
-  font-family: 'Georgia', serif;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav ul li a:hover {
-  background-color: rgba(255, 0, 0, 0.131);
-  color: #ffffff;
-  border-radius: 5px;
-}
-
+ 
 
 main {
   flex: 1;
@@ -80,12 +45,7 @@ main {
   height: auto;
 }
 
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #370900;
-  position: relative;
-}
+ 
 
 #circle1 img{
   margin-top: -8px;

@@ -1,0 +1,64 @@
+header {
+  color: white;
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #370900e0;
+  z-index: 1000;
+  box-sizing: border-box; /* Asegura que los paddings no rompan el diseño */
+}
+
+nav ul {
+list-style-type: none;
+display: flex;
+justify-content: center;
+padding: 0;
+margin: 0;
+width: 100%;
+}
+
+nav ul li {
+margin: 0 20px; /* Ajuste del margen para evitar grandes espacios */
+}
+
+nav ul li a {
+color: white;
+text-decoration: none;
+padding: 10px 15px;
+font-family: 'Georgia', serif;
+font-weight: bold;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+background-color: rgba(255, 0, 0, 0.131);
+color: #ffffff;
+border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+nav ul {
+  flex-direction: column;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 10px 0;
+}
+
+nav ul li a {
+  padding: 8px 10px;
+}
+}
+
+
+ 
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #370900;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
