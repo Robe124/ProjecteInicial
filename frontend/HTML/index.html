@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antica Roma</title>
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="/frontend/CSS/index.css">
     <link rel="stylesheet" href="/frontend/CSS/general.css">
-
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <div id="menuToggle" class="menu-toggle">☰</div> <!-- Botón para abrir el menú -->
+            <ul id="navList">
                 <li><a href="./menu.html">CARTA</a></li>
                 <li><a href="./galeria.html">GALERIA</a></li>
                 <li><a href="./contacte.html">CONTACTE</a></li>
@@ -19,39 +19,32 @@
             </ul>
         </nav>
     </header>
-
-    
-    <main>    
     <div class="background">
         <div class="overlay">
-
             <p class="AnticaRoma">ANTICA ROMA</p>
-                <img src="../img/Captura_de_pantalla_2024-10-10_170532-removebg-preview_1.png" alt="LogoSinFondo" class="imagen">
+            <img src="../img/Captura_de_pantalla_2024-10-10_170532-removebg-preview_1.png" alt="LogoSinFondo" class="imagen">
             <h4 class="Subtitulo">PIZZA E PASTA</h4>
-
-            <div id="scanQRContainer">
-                <button id="scanQRButton">Scan QR</button>
-            </div>
-            
         </div>
     </div>
-    
+    <main>
+        <div id="scanQRContainer">
+            <button id="scanQRButton">Scan QR</button>
+        </div>
         <section class="services" id="services">
             <h2 id="TitolQuienesSomos">Qui som?</h2>
-            <h4 id="TextoQuiSom">En ANTICA ROMA, vivimos y respiramos la auténtica tradición italiana. Nuestra pasión por la buena comida nos lleva a ofrecerte pizzas artesanales y pastas frescas, preparadas con los mejores ingredientes, siguiendo recetas que han pasado de generación en generación. Nos enorgullece crear un ambiente acogedor donde cada cliente se sienta como en casa, disfrutando de sabores únicos que transportan directamente a las calles de Roma.</h4>
+            <h4 id="TextoQuiSom">En ANTICA ROMA, vivimos y respiramos la auténtica tradición italiana...</h4>
             <img id="FotoQuiSom" src="../img/terazzaPizza.webp" alt="">
         </section>
 
         <section class="services" id="services">
             <img id="FotoQueOfrecemos" src="../img/imagen-de-un-horno-de-pizza-de-ladrillo-con-fuego.webp" alt="">
             <h2 id="TitolQueOferim">Qué oferim?</h2>
-            <h4 id="TextoQueOferim">En ANTICA ROMA, nos dedicamos a ofrecerte una experiencia gastronómica inolvidable. Nuestra carta destaca por su variedad de pizzas artesanales, elaboradas con masa fresca y ingredientes de la mejor calidad, que reflejan la auténtica tradición italiana. Desde la clásica Margherita hasta creaciones innovadoras, cada bocado es una explosión de sabor</h4>
-            
+            <h4 id="TextoQueOferim">En ANTICA ROMA, nos dedicamos a ofrecerte una experiencia gastronómica inolvidable...</h4>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Antica Roma.</p>
     </footer>
-    <script src="index.js"></script>
+    <script src="../JS/index.js"></script>
 </body>
 </html>
