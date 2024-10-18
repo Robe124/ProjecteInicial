@@ -254,6 +254,21 @@ p {
       font-size: 1.5em; /* Ajuste del tamaño del título */
       text-align: center;
   }
+  #TitolQueOferim{
+    margin-bottom: 40px;
+    font-family: 'Georgia', serif;
+    font-size: 40px;
+    white-space: nowrap;
+    display: inline-block;
+    align-items: center;
+  } 
+  #TitolQuienesSomos{
+    font-family: 'Georgia', serif;
+    font-size: 40px;
+    white-space: nowrap;
+    display: inline-block;
+    align-items: center;
+  }
 }
 
 
