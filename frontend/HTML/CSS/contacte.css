@@ -1,5 +1,5 @@
 body {
-    background-color: #decfcf;
+    background-color: #1a1313;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@ button {
     width: 100%;
     padding: 10px;
     background-color: #e63946;
-    color: white;
+    color: rgb(75, 42, 42);
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -58,10 +58,16 @@ button:hover {
 }
 
 .Formulario{
-    background-color: rgb(241, 229, 218);
+    background-color: rgba(74, 29, 29, 0.98);
     border-radius: 10px;
-    padding: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 2% 6%;
+    font-family: sans-serif;
+    color: red;
     margin-top: 5%;
-    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

@@ -1,9 +1,15 @@
-// Selecciona el botón y el menú
-const menuToggle = document.getElementById('menuToggle');
-const navList = document.getElementById('navList');
-
-// Agrega un evento de clic al botón
-menuToggle.addEventListener('click', () => {
-    // Alternar la clase active para mostrar u ocultar el menú
-    navList.classList.toggle('active');
-});
+document.getElementById("menuToggle").addEventListener("click", function() {
+    const navList = document.getElementById("navList");
+    const body = document.body;
+  
+    // Alternar la visibilidad del menú
+    navList.classList.toggle("show");
+  
+    // Activar/desactivar el scroll en el cuerpo de la página
+    if (navList.classList.contains("show")) {
+      body.classList.add("no-scroll");
+    } else {
+      body.classList.remove("no-scroll");
+    }
+  });
+  

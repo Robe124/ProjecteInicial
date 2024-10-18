@@ -1,62 +1,119 @@
- 
+/* Estilos generales para el header */
 header {
   color: white;
   padding-top: 25px;
+  padding-bottom: 25px;
   position: fixed;
   top: 0;
-  margin-left: 0px;
-  padding-bottom: 21px;
+  left: 0;
   width: 100%;
   background-color: #370900e0;
   z-index: 1002;
   box-sizing: border-box;
 }
 
+nav {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between; /* Ajustamos para la correcta alineación en escritorio */
+  align-items: center; /* Centrar verticalmente el botón de tres barras */
+  padding: 0 20px;
+}
+
 nav ul {
-list-style-type: none;
-display: flex;
-justify-content: center;
-padding: 0;
-margin: 0;
-width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrar verticalmente los enlaces */
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Para expandir el espacio restante del nav */
 }
 
 nav ul li {
-margin: 0 20px; /* Ajuste del margen para evitar grandes espacios */
+  margin: 0 20px; 
 }
 
 nav ul li a {
-color: white;
-text-decoration: none;
-padding: 10px 15px;
-font-family: 'Georgia', serif;
-font-weight: bold;
-transition: background-color 0.3s ease, color 0.3s ease;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav ul li a:hover {
-background-color: rgba(255, 0, 0, 0.131);
-color: #ffffff;
-border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.131);
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+/* Ocultar el menú al inicio en dispositivos móviles */
+.hidden {
+  display: none;
+}
+
+/* Estilos del botón de tres barras (solo para móviles) */
+.menu-toggle {
+  display: none; /* Oculto por defecto */
 }
 
 @media (max-width: 768px) {
-nav ul {
-  flex-direction: column;
-  align-items: center;
+  nav {
+    justify-content: space-between; /* Asegura que el botón de menú esté alineado correctamente */
+    padding: 0 20px;
+  }
+
+  /* Mostrar el botón de menú (las tres barras) en móviles */
+  .menu-toggle {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    z-index: 1005;
+    position: relative;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column; /* Alinear verticalmente las opciones */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center;
+    height: 100vh; /* Ocupa toda la pantalla */
+    background-color: rgba(55, 9, 0, 0.9); /* Fondo para cuando el menú esté abierto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1004;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+
+  nav ul li {
+    margin: 20px 0; /* Espacio entre los elementos del menú */
+  }
+
+  /* Estilo para los enlaces dentro del menú */
+  nav ul li a {
+    font-size: 24px; /* Tamaño adecuado para móviles */
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Desactivar el scroll de la página cuando el menú esté abierto */
+  .no-scroll {
+    overflow: hidden;
+  }
+  
 }
 
-nav ul li {
-  margin: 10px 0;
-}
-
-nav ul li a {
-  padding: 8px 10px;
-}
-}
-
-
- 
 footer {
   text-align: center;
   padding: 10px 0;
