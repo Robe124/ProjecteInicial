@@ -28,7 +28,7 @@ p {
 
 .background {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black), 
-               url('/frontend/HTML/img/HORNO+PIZZA.3.jpg');
+               url('../img/HORNO+PIZZA.3.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;
