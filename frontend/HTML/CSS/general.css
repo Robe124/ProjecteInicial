@@ -1,12 +1,15 @@
+ 
 header {
   color: white;
-  padding: 12px 0;
+  padding-top: 25px;
   position: fixed;
   top: 0;
+  margin-left: 0px;
+  padding-bottom: 21px;
   width: 100%;
   background-color: #370900e0;
-  z-index: 1000;
-  box-sizing: border-box; /* Asegura que los paddings no rompan el diseño */
+  z-index: 1002;
+  box-sizing: border-box;
 }
 
 nav ul {
