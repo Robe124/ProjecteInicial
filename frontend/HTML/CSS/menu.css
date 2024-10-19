@@ -61,3 +61,10 @@ main {
 #circle4 img{
   margin-left: -60px;
 }
+
+@media (max-width: 565px) {
+
+  .flex-container{
+    display: float;
+  }
+}

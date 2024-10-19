@@ -93,23 +93,21 @@ main {
 .about, .services {
   display: flex;
   align-items: center;
+  width: 70%;
+  margin-left: 15%;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   margin-top: 30px;
   position: relative;
   min-height: 300px;
-  gap: 20px; 
+  gap: 52px;
   margin-top: 100px;
   color: white;
   box-shadow: 0 0 25px rgba(81, 71, 71, 0.5);
  }
 
- 
-
-
 #FotoQuiSom{
-  clip-path: polygon(33% 0, 100% 0%, 100% 100%, 13% 100%);
     width: 200%;
     height: 367px;
 }
@@ -123,38 +121,13 @@ main {
   margin-left: 68px;
   margin-top: -2em;
   margin-right: 40px;
-}
-
-#FotoQueOfrecemos{
-  clip-path: polygon(0 0, 86% 0, 62% 100%, 0% 100%);
-  width: 104%;
-  height: 379px;
-}
-
-#TitolQueOferim{
-  margin-bottom: 40px;
-  font-family: 'Georgia', serif;
-  font-size: 40px;
-  white-space: nowrap;
-  display: inline-block;
-  margin-bottom: 4em;
-  margin-left: 68px;
-  margin-top: -2em;
-  margin-right: -380px;
 } 
 
 #TextoQuiSom{
-  font-family: 'Georgia';
-  font-size: 22px;
+  font-size: 29px;
+  font-family: monospace;
   margin-top: 50px;
-  margin-left: -250px;
-}
-
-#TextoQueOferim{
-font-family: 'Georgia';
- font-size: 22px;
- margin-top: 50px;
- margin-right: 20px;
+  margin-left: -280px;
 }
 
  .text-container {
@@ -203,11 +176,8 @@ p {
 
 }
 
-
-
-/* Estilo inicial del botón (desktop lo ocultamos) */
 #scanQRContainer {
-  display: none; /* Oculto en escritorio */
+  display: none;  
   text-align: center;
   margin-bottom: 20px;
 }
@@ -227,38 +197,102 @@ p {
   background-color: #5b241f;
 }
 
-/* Hacer imágenes no recortadas y otras modificaciones para móviles */
+.previewPizzas{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 3%;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 8%;
+  margin-bottom: 3%;
+  border-radius: 20px;
+  background-color: #181717;
+  box-shadow: 0 0 25px rgba(81, 71, 71, 0.5);
+}
+
+.pizza-container {
+  padding-bottom: 45px;
+  display: flex;  
+  justify-content: space-between; 
+  align-items: center;  
+  height: 100%;  
+}
+
+.pizza {
+  width: 45%;  
+  text-align: center;
+}
+
+.pizza img {
+  width: 120%;  
+  height: auto;  
+}
+
+.superpuesto {
+  position: absolute;
+  z-index: 1;  
+}
+
+.pizza-item{
+  margin: 0 15px;
+  width:2%;
+}
+
+.left-arrow{
+  padding-bottom: 90px;
+  padding-right: 45px;
+}
+
+.right-arrow{
+  padding-bottom: 90px;
+  padding-left: 45px;
+}
+
+.arrow {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+
+
+/*Aqui dentro metemos todo loq que quermeos que suceda cuando entras con el mobil*/
 @media (max-width: 768px) {
 
-  /* Mostrar el botón Scan QR en móviles */
   #scanQRContainer {
-      display: block; /* Mostrar en móvil */
+      display: block; 
   }
 
-  /* Imágenes sin recorte en móvil */
-  #FotoQuiSom, #FotoQueOfrecemos {
-      clip-path: none; /* Elimina los recortes */
-      width: 100%; /* Asegura que la imagen ocupe el ancho completo del contenedor */
-      height: auto; /* Ajuste automático de la altura para mantener proporción */
+   
+  #FotoQuiSom{
+      clip-path: none;  
+      width: 100%;  
+      height: auto;  
   }
 
-  /* Ajustes para el texto en móvil */
-  h4#TextoQuiSom, h4#TextoQueOferim {
-      font-size: 1em; /* Reducir tamaño del texto en móvil */
-      margin-left: 0; /* Ajuste de márgenes */
-      margin-right: 0; 
-      text-align: justify; /* Alineación del texto en móviles */
+ 
+  #TextoQuiSom{
+    font-size: 1em;
+    padding-left: 300px;
+    padding-right: 58px;
+    text-align: justify;
   }
 
-  /* Cambiar el layout de las secciones para ser más simples y fáciles de leer en móviles */
+ 
   .services {
-      flex-direction: column; /* Alinear los elementos de las secciones en columna */
+      flex-direction: column;  
       align-items: center;
   }
 
-  /* Ajuste para el subtítulo en móvil */
+ 
   h2 {
-      font-size: 1.5em; /* Ajuste del tamaño del título */
+      font-size: 1.5em;  
       text-align: center;
   }
   #TitolQueOferim{

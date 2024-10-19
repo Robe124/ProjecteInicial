@@ -15,8 +15,8 @@ body {
 } 
  
 h1 {
-    color: #e63946;
-    margin-bottom: 20px;
+    color: #fefefe;
+    margin-bottom: 60px;
     text-align: center;
 }
 
@@ -28,6 +28,7 @@ label {
 }
 
 input {
+    margin-top: 20px;
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -41,7 +42,6 @@ input:focus {
 }
 
 button {
-    margin: 10px;
     width: 100%;
     padding: 10px;
     background-color: #e63946;
@@ -53,8 +53,8 @@ button {
 }
 
 button:hover {
-    background-color: #d62828;
-    
+    background-color: #165e09;
+    color: ;
 }
 
 .Formulario{
@@ -62,8 +62,8 @@ button:hover {
     border-radius: 10px;
     padding: 2% 6%;
     font-family: sans-serif;
-    color: red;
-    margin-top: 5%;
+    color: rgb(255, 255, 255);
+    margin-top: 10%;
 }
 
 * {
@@ -71,3 +71,13 @@ button:hover {
     padding: 0;
     box-sizing: border-box;
 }
+
+input[type="text"]#asunto {
+    width: 100%;  
+    height: 120px;  
+    font-size: 13px;  
+    padding: 10px; 
+    box-sizing: border-box;  
+  }
+
+  
