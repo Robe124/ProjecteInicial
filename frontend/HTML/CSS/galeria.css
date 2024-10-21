@@ -1,30 +1,97 @@
-body {
-    background-color: #1a1313;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #1a1313;
+}
+
+header {
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #370900e0;
+    z-index: 1002;
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; 
+}
+
+nav ul li {
+    margin: 0 20px; 
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 0, 0, 0.131);
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #370900;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Estilos para el contenedor de imágenes */
 .ContenidorImagenes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;  /* Centramos las imágenes en la fila */
-    gap: 20px; /* Espacio entre imágenes */
-    margin: 150px auto 30px auto; /* Margen superior para evitar el overlap con el header */
-    padding: 10px;
+    justify-content: center;  
+    padding: 80px 10px 30px; /* Ajustar el padding para evitar el overlap con el header */
+    margin: 0 auto; /* Centrar el contenedor de imágenes */
 }
 
 .Container-img {
-    flex: 1 1 22%;  /* Ajustamos para que entren 4 imágenes por fila */
-    max-width: 22%; /* Aseguramos que el ancho máximo sea 22% para 4 imágenes por fila */
-    margin: 10px;
-    position: relative;
+    width: 601px; /* Ancho fijo para las imágenes */
+    margin: 10px; /* Espacio entre imágenes */
+    position: relative; 
 }
 
 .imatges-pizzas {
     width: 100%;
-    height: auto;
+    height: auto; /* Mantener proporciones de la imagen */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -35,69 +102,20 @@ body {
 }
 
 main {
-    flex: 1;
+    flex: 1; /* Hacer que el main ocupe todo el espacio disponible */
     padding: 20px;
     background-color: #000000;
-    align-content: center;
-  }
-  
+}
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
     .Container-img {
-        flex: 1 1 45%;
-        max-width: 45%;
+        width: 45%; /* Ancho para dispositivos más pequeños */
     }
 }
 
 @media (max-width: 480px) {
     .Container-img {
-        flex: 1 1 100%;
-        max-width: 100%;
+        width: 100%; /* Ancho para dispositivos muy pequeños */
     }
 }
-
-
-
-
-
-
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-family: math;
-}
-
-input {
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input:focus {
-    border-color: #e63946;
-    outline: none;
-}
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-main {
-    flex: 1; /* Hacer que el main ocupe todo el espacio disponible */
-  }
-  
-  html, body {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-  }
