@@ -22,6 +22,7 @@ function tick() {
       const result = jsQR(imageData.data, canvas.width, canvas.height);
       if (result) {
         alert(`QR Code detected: ${result.data}`);
+        window.location.href = result.data; // Redirigir al enlace escaneado
         video.srcObject.getTracks().forEach(track => track.stop()); // Detener la cámara
       }
     } catch (e) {
