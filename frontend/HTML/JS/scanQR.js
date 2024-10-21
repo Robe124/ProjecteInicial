@@ -1,33 +1,16 @@
-const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const context = canvas.getContext("2d");
-const startButton = document.getElementById("start-button");
+const html5QrCode = new Html5Qrcode("reader");
 
-startButton.onclick = async () => {
-  const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
-  video.srcObject = stream;
-  video.setAttribute("playsinline", true);
-  video.play();
-  tick();
+const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+    // Se ejecuta cuando se detecta un código QR
+    document.getElementById("result").innerText = `Código QR detectado: ${decodedText}`;
+    html5QrCode.stop().catch(err => {
+        console.error("Error al detener el escáner: ", err);
+    });
 };
 
-function tick() {
-  if (video.readyState === video.HAVE_ENOUGH_DATA) {
-    canvas.height = video.videoHeight;
-    canvas.width = video.videoWidth;
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    
-    try {
-      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-      const result = jsQR(imageData.data, canvas.width, canvas.height);
-      if (result) {
-        alert(`QR Code detected: ${result.data}`);
-        window.location.href = result.data; // Redirigir al enlace escaneado
-        video.srcObject.getTracks().forEach(track => track.stop()); // Detener la cámara
-      }
-    } catch (e) {
-      // Ignorar errores si no hay suficiente luz o si el QR no es legible
-    }
-  }
-  requestAnimationFrame(tick);
-}
+const config = { fps: 10, qrbox: 250 };
+
+html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback)
+    .catch(err => {
+        console.error("Error al iniciar el escáner: ", err);
+    });
