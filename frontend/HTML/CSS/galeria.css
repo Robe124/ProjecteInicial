@@ -1,20 +1,103 @@
-
-
-.imatges-pizzas{
-    width: 22%;
-    float: left;
-    padding-left: 200px;
-    padding-bottom: 75px;
+body {
+    background-color: #1a1313;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.ContenidorImagenes{
-    margin-top: 10%;
-    margin-left: -73px;
-    margin-right: 20px;
+.ContenidorImagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Centramos las imágenes en la fila */
+    gap: 20px; /* Espacio entre imágenes */
+    margin: 150px auto 30px auto; /* Margen superior para evitar el overlap con el header */
+    padding: 10px;
 }
 
-.imatges-oficina{
-    width: 25%;
-    float: left;
-    padding-left: 145px;
+.Container-img {
+    flex: 1 1 22%;  /* Ajustamos para que entren 4 imágenes por fila */
+    max-width: 22%; /* Aseguramos que el ancho máximo sea 22% para 4 imágenes por fila */
+    margin: 10px;
+    position: relative;
 }
+
+.imatges-pizzas {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.imatges-pizzas:hover {
+    transform: scale(1.05);
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #000000;
+    align-content: center;
+  }
+  
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .Container-img {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .Container-img {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: math;
+}
+
+input {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input:focus {
+    border-color: #e63946;
+    outline: none;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    flex: 1; /* Hacer que el main ocupe todo el espacio disponible */
+  }
+  
+  html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+  }
