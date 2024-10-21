@@ -4,14 +4,13 @@ document.getElementById("Boton-Volver").onclick = function() {
 
 const html5QrcodeScanner = new Html5Qrcode("reader");
 html5QrcodeScanner.start(
-    { facingMode: "environment" }, // Utiliza la cámara trasera
+    { facingMode: "environment" }, 
     {
         fps: 10,
         qrbox: { width: 250, height: 250 }
     },
     qrCodeMessage => {
         console.log(qrCodeMessage);
-        // Redirige a la página deseada
         window.location.href = "https://anticaromaristorante.netlify.app/OpcionsCompra";
     },
     errorMessage => {
