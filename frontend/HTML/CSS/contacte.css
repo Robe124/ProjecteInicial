@@ -57,13 +57,13 @@ button:hover {
     color: ;
 }
 
-.Formulario{
+.Formulario {
     background-color: rgba(74, 29, 29, 0.98);
     border-radius: 10px;
     padding: 2% 6%;
     font-family: sans-serif;
     color: rgb(255, 255, 255);
-    margin-top: 10%;
+    margin: auto; 
 }
 
 * {
@@ -80,4 +80,21 @@ input[type="text"]#asunto {
     box-sizing: border-box;  
   }
 
+  @media (max-width: 768px) {
   
+    .Formulario{
+        margin-top: 60vh;
+    }
+}
+
+
+main {
+    flex: 1; /* Hacer que el main ocupe todo el espacio disponible */
+  }
+  
+  html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+  }

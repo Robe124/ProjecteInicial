@@ -115,10 +115,10 @@ nav ul li a:hover {
 }
 
 footer {
+  background-color: #370900;
+  color: white;
   text-align: center;
   padding: 10px 0;
-  background-color: #370900;
-  position: relative;
-  bottom: 0;
   width: 100%;
+  margin-top: 40px;
 }
