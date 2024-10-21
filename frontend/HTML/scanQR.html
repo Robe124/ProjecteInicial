@@ -1,13 +1,20 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Scanner</title>
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-  </head>
+    <title>Escáner de Código QR</title>
+    <link rel="stylesheet" href="styles.css">  
+    <script src="./JS/scanQR.js" defer></script>  
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+
+</head>
 <body>
-    <div id="reader" width="600px"></div>
-    <script>src="./JS/scanQR.js"</script>
+  <h1>Escáner de Código QR</h1>
+  <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
+  <p id="result"></p>
+
+  <script src="https://unpkg.com/@zxing/library@latest"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
