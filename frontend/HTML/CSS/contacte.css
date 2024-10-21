@@ -64,6 +64,7 @@ button:hover {
     font-family: sans-serif;
     color: rgb(255, 255, 255);
     margin: auto; 
+    margin-top: 350px;
 }
 
 * {
