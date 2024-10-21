@@ -3,20 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./CSS/general.css">
-    <link rel="stylesheet" href="./CSS/scanQR.css">
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.0.0/dist/dbr.js"></script>
+    <title>QR Code Scanner</title>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 </head>
 <body>
-    <header>
-     <button id="Boton-Volver">VOLVER</button>
-      </header>
-      <main>
-        <div id="barcodeScanner">
-          <span id='loading-status' style='font-size:x-large'>Loading Library...</span>
-      </div>
-      </main>
-    <script src="./JS/scanQR.js"></script>
+    <div id="reader" width="600px"></div>
+    <script>src="./JS/scanQR.js"</script>
 </body>
 </html>
