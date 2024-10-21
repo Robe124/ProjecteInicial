@@ -50,3 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   updatePizzas(); // Inicializar con las primeras pizzas
 });
+
+
+document.getElementById("scanQRButton").onclick = function() {
+  window.location.href = "./scanQR.html";
+};
