@@ -54,7 +54,6 @@ button {
 
 button:hover {
     background-color: #165e09;
-    color: ;
 }
 
 .Formulario {
@@ -88,9 +87,8 @@ input[type="text"]#asunto {
     }
 }
 
-
 main {
-    flex: 1; /* Hacer que el main ocupe todo el espacio disponible */
+    flex: 1;
   }
   
   html, body {

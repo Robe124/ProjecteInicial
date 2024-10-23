@@ -29,14 +29,14 @@ body {
 @media (max-width: 768px) {
     #reader {
         height: 200px;
-        width: 200px; /* Tamaño más adecuado para tabletas o pantallas medianas */
+        width: 200px;
     }
 }
 
 @media (max-width: 480px) {
     #reader {
         height: 200px;
-        width: 200px; /* Tamaño más adecuado para móviles */
+        width: 200px;
     }
 }
 

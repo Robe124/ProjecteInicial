@@ -3,7 +3,7 @@ body {
   color: #ffffff;
   background-color: #000000;
   align-items: center;
-  min-height: 100vh; /* Ajustado para evitar scroll infinito */
+  min-height: 100vh;
   justify-content: center;
 }
  
@@ -260,9 +260,6 @@ p {
   color: #ffffff;
 }
 
-
-
-/*Aqui dentro metemos todo loq que quermeos que suceda cuando entras con el mobil*/
 @media (max-width: 768px) {
 
   #scanQRContainer {
@@ -273,14 +270,11 @@ p {
     
   }
 
- 
-
   #FotoQuiSom{
       clip-path: none;  
       width: 100%;  
       height: auto;  
   }
-
  
   #TextoQuiSom{
     font-size: 1em;
@@ -291,13 +285,11 @@ p {
     margin-top: -20px;
     padding-left: 356px;
   }
-
  
   .services {
       flex-direction: column;  
       align-items: center;
   }
-
  
   h2 {
       font-size: 1.5em;  

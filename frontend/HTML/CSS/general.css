@@ -1,4 +1,3 @@
-/* Estilos generales para el header */
 header {
   color: white;
   padding-top: 25px;
@@ -16,8 +15,8 @@ nav {
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between; /* Ajustamos para la correcta alineación en escritorio */
-  align-items: center; /* Centrar verticalmente el botón de tres barras */
+  justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
 }
 
@@ -25,10 +24,10 @@ nav ul {
   list-style-type: none;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centrar verticalmente los enlaces */
+  align-items: center;
   padding: 0;
   margin: 0;
-  flex-grow: 1; /* Para expandir el espacio restante del nav */
+  flex-grow: 1;
 }
 
 nav ul li {
@@ -50,23 +49,20 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
-/* Ocultar el menú al inicio en dispositivos móviles */
 .hidden {
   display: none;
 }
 
-/* Estilos del botón de tres barras (solo para móviles) */
 .menu-toggle {
-  display: none; /* Oculto por defecto */
+  display: none;
 }
 
 @media (max-width: 768px) {
   nav {
-    justify-content: space-between; /* Asegura que el botón de menú esté alineado correctamente */
+    justify-content: space-between;
     padding: 0 20px;
   }
 
-  /* Mostrar el botón de menú (las tres barras) en móviles */
   .menu-toggle {
     display: block;
     font-size: 30px;
@@ -79,11 +75,11 @@ nav ul li a:hover {
 
   nav ul {
     display: none;
-    flex-direction: column; /* Alinear verticalmente las opciones */
-    justify-content: center; /* Centrar verticalmente */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa toda la pantalla */
-    background-color: rgba(55, 9, 0, 0.9); /* Fondo para cuando el menú esté abierto */
+    height: 100vh;
+    background-color: rgba(55, 9, 0, 0.9);
     position: fixed;
     top: 0;
     left: 0;
@@ -95,19 +91,16 @@ nav ul li a:hover {
     display: flex;
   }
 
-
   nav ul li {
-    margin: 20px 0; /* Espacio entre los elementos del menú */
+    margin: 20px 0;
   }
 
-  /* Estilo para los enlaces dentro del menú */
   nav ul li a {
-    font-size: 24px; /* Tamaño adecuado para móviles */
+    font-size: 24px;
     color: white;
     text-decoration: none;
   }
 
-  /* Desactivar el scroll de la página cuando el menú esté abierto */
   .no-scroll {
     overflow: hidden;
   }
