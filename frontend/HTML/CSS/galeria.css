@@ -1,3 +1,4 @@
+/* Reset general */
 * {
     margin: 0;
     padding: 0;
@@ -74,48 +75,65 @@ footer {
     width: 100%;
 }
 
-/* Estilos para el contenedor de imágenes */
-.ContenidorImagenes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;  
-    padding: 80px 10px 30px; /* Ajustar el padding para evitar el overlap con el header */
-    margin: 0 auto; /* Centrar el contenedor de imágenes */
+/* Estilos para el contenedor de la galería en mosaico */
+.mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-gap: 5px; /* Reducir el espacio entre las imágenes */
+    padding: 80px 10px 30px; /* Ajustar el padding para evitar superposición con el header */
+    max-width: 1200px; /* Ancho máximo del grid */
+    margin: 0 auto; /* Centrar el grid */
 }
 
-.Container-img {
-    width: 601px; /* Ancho fijo para las imágenes */
-    margin: 10px; /* Espacio entre imágenes */
-    position: relative; 
+/* Ajuste de tamaños para crear variación de imágenes */
+.mosaic-grid .grid-item {
+    position: relative;
+    overflow: hidden; /* Evitar que las imágenes sobresalgan de los contenedores */
 }
 
-.imatges-pizzas {
+.mosaic-grid img {
     width: 100%;
-    height: auto; /* Mantener proporciones de la imagen */
+    height: 100%; /* Asegurar que la imagen ocupe todo el contenedor */
+    object-fit: cover; /* Esto asegura que las imágenes llenen el espacio sin deformarse */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
 
-.imatges-pizzas:hover {
+.mosaic-grid img:hover {
     transform: scale(1.05);
 }
 
-main {
-    flex: 1; /* Hacer que el main ocupe todo el espacio disponible */
-    padding: 20px;
-    background-color: #000000;
+/* Estilos para variación de tamaños dentro del mosaico */
+.mosaic-grid .grid-item:nth-child(1) {
+    grid-column: span 2; /* Imagen que abarca dos columnas */
+    grid-row: span 2; /* Imagen que abarca dos filas */
+}
+
+.mosaic-grid .grid-item:nth-child(5),
+.mosaic-grid .grid-item:nth-child(9) {
+    grid-column: span 2; /* Otras imágenes destacadas */
 }
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
-    .Container-img {
-        width: 45%; /* Ancho para dispositivos más pequeños */
+    .mosaic-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas más pequeñas */
+    }
+
+    .mosaic-grid .grid-item:nth-child(1),
+    .mosaic-grid .grid-item:nth-child(5),
+    .mosaic-grid .grid-item:nth-child(9) {
+        grid-column: span 2; /* Mantener las imágenes más grandes */
     }
 }
 
 @media (max-width: 480px) {
-    .Container-img {
-        width: 100%; /* Ancho para dispositivos muy pequeños */
+    .mosaic-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+    }
+
+    .mosaic-grid .grid-item {
+        grid-column: span 1;
     }
 }
