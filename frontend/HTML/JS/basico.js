@@ -16,3 +16,4 @@ function lecturaCorrecta(codigoTexto, codigoObjeto) {
     /* verbose= */ false);
   
   html5QrcodeScanner.render(lecturaCorrecta, errorLectura);
+ 
