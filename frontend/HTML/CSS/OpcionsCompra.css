@@ -1,0 +1,84 @@
+#NavProductos {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+#NavProductos .botones-container {
+    display: flex;
+    gap: 15px;  
+}
+
+#NavProductos button {
+    padding: 1px 0px;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-left: 10px;
+    border: none;
+    background-color: #d4826f;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#NavProductos button:hover {
+    background-color: #b36755;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#contenedorImagenes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    margin-top: 100px;
+}
+
+.productos {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.productos img {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.boton {
+    border-radius: 5px;
+    background-color: #d4826f;
+    padding: 6px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#cesta {
+margin-top: 10vh;
+}
+
+#infoCarrito {
+    position: fixed;
+    top: 100px;
+    right: 160px;
+    background-color: white;
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}

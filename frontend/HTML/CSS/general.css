@@ -1,3 +1,7 @@
+main{
+  margin-top: 20px;
+}
+
 header {
   color: white;
   padding-top: 25px;
@@ -31,7 +35,7 @@ nav ul {
 }
 
 nav ul li {
-  margin: 0 20px; 
+  margin: 0 20px;
 }
 
 nav ul li a {
@@ -59,52 +63,51 @@ nav ul li a:hover {
 
 @media (max-width: 768px) {
   nav {
-    justify-content: space-between;
-    padding: 0 20px;
+      justify-content: space-between;
+      padding: 0 20px;
   }
 
   .menu-toggle {
-    display: block;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    padding: 10px;
-    z-index: 1005;
-    position: relative;
+      display: block;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      padding: 10px;
+      z-index: 1005;
+      position: relative;
   }
 
   nav ul {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: rgba(55, 9, 0, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1004;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgba(55, 9, 0, 0.9);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1004;
   }
 
   nav ul.show {
-    display: flex;
+      display: flex;
   }
 
   nav ul li {
-    margin: 20px 0;
+      margin: 20px 0;
   }
 
   nav ul li a {
-    font-size: 24px;
-    color: white;
-    text-decoration: none;
+      font-size: 24px;
+      color: white;
+      text-decoration: none;
   }
 
   .no-scroll {
-    overflow: hidden;
+      overflow: hidden;
   }
-  
 }
 
 footer {
