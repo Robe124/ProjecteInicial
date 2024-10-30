@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,75 @@
     <link rel="stylesheet" href="./CSS/general.css">
     <link rel="stylesheet" href="./CSS/OpcionsCompra.css">
 </head>
+
 <body>
-    
+
+    <header>
+        <section id="NavProductos">
+            <div class="botones-container">
+                <button>BEBIDAS</button>
+                <button>PIZZAS</button>
+                <button>PASTA</button>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <div id="infoCarrito">
+            <p>Número de productos: <span id="numeroProductos">0</span></p>
+            <p>Precio total: <span id="precioTotal">0 €</span></p>
+        </div>
+        <section id="contenedorImagenes">
+            <div id="producto1" class="productos">
+                <img src="./img/PizzaBianca.png" alt="pizza1">
+                <button class="boton" onclick="añadirACesta('producto1')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto2" class="productos">
+                <img src="./img/Pizza4Formatge.png" alt="pizza2">
+                <button class="boton" onclick="añadirACesta('producto2')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto3" class="productos">
+                <img src="./img/PuzzaPositiano.png" alt="pizza3">
+                <button class="boton" onclick="añadirACesta('producto3')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto4" class="productos">
+                <img src="./img/PizzaBresaola.png" alt="pizza4">
+                <button class="boton" onclick="añadirACesta('producto4')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto5" class="productos">
+                <img src="./img/PizzaCapresse.png" alt="pizza5">
+                <button class="boton" onclick="añadirACesta('producto5')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto6" class="productos">
+                <img src="./img/PizzaCapricciosa.png" alt="pizza6">
+                <button class="boton" onclick="añadirACesta('producto6')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto7" class="productos">
+                <img src="./img/PizzaDiavola.png" alt="pizza7">
+                <button class="boton" onclick="añadirACesta('producto7')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto8" class="productos">
+                <img src="./img/PizzaFrutiDiMare.png" alt="pizza8">
+                <button class="boton" onclick="añadirACesta('producto8')">Añadir a la cesta</button>
+            </div>
+        </section>
+            <div>
+                <button>COnti</button>
+            </div>
+    </main>
+
+
+
+    <footer></footer>
+    <script src="./JS/OpcionsCompraCesta.js"></script>
+
 </body>
+
 </html>
