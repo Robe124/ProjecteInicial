@@ -14,18 +14,23 @@
     <header>
         <section id="NavProductos">
             <div class="botones-container">
-                <button>BEBIDAS</button>
-                <button>PIZZAS</button>
-                <button>PASTA</button>
+                <button id="PaginaOpcionesBebidas">BEBIDAS</button>
+                <button id="PaginaOpcionesPasta">PASTAS</button>
+                <button id="PaginaOpcionesPizzas">PIZZAS</button>
             </div>
         </section>
     </header>
 
     <main>
-        <div id="infoCarrito">
-            <p>Número de productos: <span id="numeroProductos">0</span></p>
-            <p>Precio total: <span id="precioTotal">0 €</span></p>
-        </div>
+        <header>
+            <section id="NavProductos">
+                <div class="botones-container">
+                    <button id="PaginaOpcionesBebidas">BEBIDAS</button>
+                    <button id="PaginaOpcionesPasta">PASTAS</button>
+                    <button id="PaginaOpcionesPizzas">PIZZAS</button>
+                </div>
+            </section>
+        </header>   
         <section id="contenedorImagenes">
             <div id="producto1" class="productos">
                 <img src="./img/PizzaBianca.png" alt="pizza1">
@@ -68,14 +73,16 @@
             </div>
         </section>
             <div>
-                <button>COnti</button>
+                <button  id="BotonContinuar">CONTNUAR</button>
             </div>
     </main>
 
 
 
     <footer></footer>
-    <script src="./JS/OpcionsCompraCesta.js"></script>
+    <script 
+    src="./JS/OpcionsCompraCesta.js"
+    ></script>
 
 </body>
 

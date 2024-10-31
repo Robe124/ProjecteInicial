@@ -27,9 +27,9 @@
 }
 
 main {
-    display: flex;
     justify-content: center;
     padding: 20px;
+    margin-top: 90px;
 }
 
 #contenedorImagenes {
@@ -65,11 +65,11 @@ main {
     cursor: pointer;
 }
 
-#cesta {
-margin-top: 10vh;
+#listaCesta {
+margin-top: 10px;
 }
 
-#infoCarrito {
+#listaCesta {
     position: fixed;
     top: 100px;
     right: 160px;
@@ -81,4 +81,13 @@ margin-top: 10vh;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+}
+
+#BotonContinuar{
+    margin-left: 160px;
+    margin-top: 40px;
+    color: white;
+    border-radius: 5px;
+    background-color: green;
+    padding: 5px;
 }

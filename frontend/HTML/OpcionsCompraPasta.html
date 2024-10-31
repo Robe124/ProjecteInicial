@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opcions Compra</title>
+    <link rel="stylesheet" href="./CSS/general.css">
+    <link rel="stylesheet" href="./CSS/OpcionsCompra.css">
+</head>
+
+<body>
+
+    <header>
+        <section id="NavProductos">
+            <div class="botones-container">
+                <button id="PaginaOpcionesBebidas">BEBIDAS</button>
+                <button id="PaginaOpcionesPasta">PASTAS</button>
+                <button id="PaginaOpcionesPizzas">PIZZAS</button>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <div id="infoCarrito">
+            <p>Número de productos: <span id="numeroProductos">0</span></p>
+            <p>Precio total: <span id="precioTotal">0 €</span></p>
+            <button onclick="toggleListaCesta()">Ver lista de productos</button>
+        </div>
+        <div id="listaCestaContainer" style="display: none;">
+            <ul id="listaCesta"></ul>
+        </div>
+        
+        <section id="contenedorImagenes">
+            <div id="producto1" class="productos">
+                <img src="" alt="PASTA2">
+                <button class="boton" onclick="añadirACesta('producto1')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto2" class="productos">
+                <img src="" alt="PASTA2">
+                <button class="boton" onclick="añadirACesta('producto2')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto3" class="productos">
+                <img src="" alt="PASTA3">
+                <button class="boton" onclick="añadirACesta('producto3')">Añadir a la cesta</button>
+            </div>
+
+            <div id="producto4" class="productos">
+                <img src="" alt="PASTA4">
+                <button class="boton" onclick="añadirACesta('producto4')">Añadir a la cesta</button>
+            </div>
+
+        </section>
+            <div>
+                <button  id="BotonContinuar">CONTNUAR</button>
+            </div>
+    </main>
+
+
+
+    <footer></footer>
+    <script 
+    src="./JS/OpcionsCompraCesta.js"
+    ></script>
+
+</body>
+
+</html>
