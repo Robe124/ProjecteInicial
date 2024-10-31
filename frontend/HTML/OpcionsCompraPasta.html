@@ -10,61 +10,79 @@
 </head>
 
 <body>
-
     <header>
         <section id="NavProductos">
             <div class="botones-container">
-                <button id="PaginaOpcionesBebidas">BEBIDAS</button>
-                <button id="PaginaOpcionesPasta">PASTAS</button>
-                <button id="PaginaOpcionesPizzas">PIZZAS</button>
+                <a href="OpcionsCompraBebidas.html" class="nav-link">BEBIDAS</a>
+                <a href="OpcionsCompraPasta.html" class="nav-link">PASTAS</a>
+                <a href="OpcionsCompraPizza.html" class="nav-link">PIZZAS</a>
             </div>
         </section>
     </header>
 
     <main>
-        <div id="infoCarrito">
-            <p>Número de productos: <span id="numeroProductos">0</span></p>
-            <p>Precio total: <span id="precioTotal">0 €</span></p>
-            <button onclick="toggleListaCesta()">Ver lista de productos</button>
+        <div>
+            <div id="toggleCesta" onclick="toggleCesta()">
+                <span>🡇</span> Cesta
+            </div>
+            <div id="listaCesta" style="display: none;">
+            </div>
         </div>
-        <div id="listaCestaContainer" style="display: none;">
-            <ul id="listaCesta"></ul>
-        </div>
-        
+
+        <h1 id="titolPastas">PASTAS</h1>
         <section id="contenedorImagenes">
             <div id="producto1" class="productos">
-                <img src="" alt="PASTA2">
-                <button class="boton" onclick="añadirACesta('producto1')">Añadir a la cesta</button>
+                <img src="./img/Pasta1.png" alt="Pasta 1">
+                <button class="boton" onclick="añadirACesta('Pasta1', 10)">Añadir a la cesta</button>
+                <select id="cantidadPasta1" onchange="actualizarCantidad('Pasta1', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
             </div>
 
             <div id="producto2" class="productos">
-                <img src="" alt="PASTA2">
-                <button class="boton" onclick="añadirACesta('producto2')">Añadir a la cesta</button>
+                <img src="./img/Pasta2.png" alt="Pasta 2">
+                <button class="boton" onclick="añadirACesta('Pasta2', 12)">Añadir a la cesta</button>
+                <select id="cantidadPasta2" onchange="actualizarCantidad('Pasta2', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
             </div>
 
             <div id="producto3" class="productos">
-                <img src="" alt="PASTA3">
-                <button class="boton" onclick="añadirACesta('producto3')">Añadir a la cesta</button>
+                <img src="./img/Pasta3.png" alt="Pasta 3">
+                <button class="boton" onclick="añadirACesta('Pasta3', 14)">Añadir a la cesta</button>
+                <select id="cantidadPasta3" onchange="actualizarCantidad('Pasta3', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
             </div>
 
             <div id="producto4" class="productos">
-                <img src="" alt="PASTA4">
-                <button class="boton" onclick="añadirACesta('producto4')">Añadir a la cesta</button>
+                <img src="./img/Pasta4.png" alt="Pasta 4">
+                <button class="boton" onclick="añadirACesta('Pasta4', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Pasta4', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
             </div>
-
         </section>
-            <div>
-                <button  id="BotonContinuar">CONTNUAR</button>
-            </div>
+
+        <div>
+            <button id="BotonContinuar">CONTINUAR</button>
+        </div>
     </main>
 
-
-
     <footer></footer>
-    <script 
-    src="./JS/OpcionsCompraCesta.js"
-    ></script>
-
+    <script src="./JS/OpcionsCompraCesta.js"></script>
 </body>
 
 </html>

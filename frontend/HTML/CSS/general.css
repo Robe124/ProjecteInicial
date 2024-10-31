@@ -118,3 +118,48 @@ footer {
   width: 100%;
   margin-top: 40px;
 }
+
+#NavProductos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.boton {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background-color: #45a049;
+}
+
+.productos {
+  text-align: center;
+  margin: 20px;
+}
+
+#toggleCesta {
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+#listaCesta {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#infoCarrito {
+  margin-bottom: 20px;
+}
