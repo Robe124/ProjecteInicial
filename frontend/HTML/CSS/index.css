@@ -1,10 +1,10 @@
 body {
   font-family: 'Arial', sans-serif;
-  color: #ffffff;
+  color: #c4baba;
   background-color: #000000;
   align-items: center;
   min-height: 100vh;
-  justify-content: center;
+
 }
  
 h2 {
@@ -45,7 +45,7 @@ p {
 }
 
 .overlay {
-  color: white;
+  color: #cecabf;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
@@ -76,7 +76,7 @@ main {
 
 .imagen {
   max-width: 300px;
-  margin: 0 20px;
+
 }
 
 .Subtitulo {
@@ -173,7 +173,7 @@ p {
 
 .AnticaRoma{
   font-family: serif;
-
+  margin-top: -161px;
 }
 
 #scanQRContainer {
@@ -314,4 +314,33 @@ p {
   .overlay{
     margin-top: 20vh;
   }
+}
+
+#OrderNow {
+  text-align: center;  
+}
+
+#OrderNow {
+  text-align: center;  
+}
+
+.OrderNow {
+  display: inline-block; 
+  color: white; 
+  background-color: #6D2C26; 
+  padding: 10px 20px; 
+  font-family: 'Georgia', serif;
+  border-radius: 5px; 
+  margin-top: 70px;
+  text-decoration: none; 
+  font-size: 20px; /* Tamaño de fuente */
+}
+
+.OrderNow:hover {
+  background-color: #5b241f; 
+}
+
+.OrderNow a {
+  color: white; 
+  text-decoration: none; 
 }
