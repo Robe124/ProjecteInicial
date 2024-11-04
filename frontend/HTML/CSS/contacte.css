@@ -59,17 +59,21 @@ button:hover {
 .Formulario {
     background-color: rgba(74, 29, 29, 0.98);
     border-radius: 10px;
-    padding: 2% 6%;
     font-family: sans-serif;
     color: rgb(255, 255, 255);
-    margin: auto; 
-    margin-top: 350px;
+    margin: auto;
+    padding-bottom: 47px;
+    margin-top: 370px;
+    padding-right: 95px;
+    padding-left: 95px;
+    padding-top: 60px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 0px;
     box-sizing: border-box;
+    margin-top: 1px;
 }
 
 input[type="text"]#asunto {
