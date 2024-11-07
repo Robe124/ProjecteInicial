@@ -1,0 +1,54 @@
+#BotoPagament{
+    background-color: green;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 86%;
+}
+
+#InputNombre{
+    padding: 7px;
+    padding-left: 5%;
+    float: left;
+    display: flex;
+
+}
+
+#InputApellido{
+    padding: 7px;
+    padding-left: 5%;
+    float: left;
+    display: flex;
+
+}
+
+#InputEmail{
+    padding: 7px;
+    padding-left: 15%;
+    float: left;
+    display: flex;
+
+}
+
+#InputNumeroTarjeta{
+    padding: 7px;
+    padding-left: 15%;
+    float: left;
+    display: flex;
+
+}
+
+
+#NumeroCSV{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    float: left;
+    padding-left: 1px;
+    display: flex;
+    flex-grow: inherit;
+}
+
+#containerInputs{
+    float: left;
+    display: flex;
+
+}
