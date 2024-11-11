@@ -1,21 +1,14 @@
-// Crear un objeto para almacenar los productos en la cesta
+document.addEventListener('DOMContentLoaded', mostrarCesta);
+
 let cesta = JSON.parse(localStorage.getItem('cesta')) || {};
 
-function añadirACesta(productoID, precio) {
-    // Obtener la cantidad seleccionada
-    const cantidadSeleccionada = document.getElementById(`cantidad${productoID}`).value;
-
-    // Añadir producto a la cesta o incrementar cantidad
-    if (cesta[productoID]) {
-        cesta[productoID].cantidad += parseInt(cantidadSeleccionada);
+function agregarACesta(producto, cantidad, precio) {
+    if (cesta[producto]) {
+        cesta[producto].cantidad += parseInt(cantidad);
     } else {
-        cesta[productoID] = { cantidad: parseInt(cantidadSeleccionada), precio: precio };
+        cesta[producto] = { cantidad: parseInt(cantidad), precio };
     }
-
-    // Guardar la cesta en localStorage
     localStorage.setItem('cesta', JSON.stringify(cesta));
-
-    // Actualizar la visualización de la cesta
     mostrarCesta();
 }
 
@@ -27,8 +20,12 @@ function mostrarCesta() {
     let totalPrecio = 0;
 
     for (const [productoID, { cantidad, precio }] of Object.entries(cesta)) {
-        const item = document.createElement('li');
-        item.textContent = `${productoID}: ${cantidad} x ${precio} €`;
+        const item = document.createElement('div');
+        item.classList.add('producto-item');
+        item.innerHTML = `
+            <span>${productoID} - ${cantidad} x ${precio} €</span>
+            <button onclick="eliminarDeCesta('${productoID}')">Eliminar</button>
+        `;
         listaCesta.appendChild(item);
 
         totalProductos += cantidad;
@@ -44,5 +41,13 @@ function toggleCesta() {
     listaCesta.style.display = (listaCesta.style.display === 'none' || listaCesta.style.display === '') ? 'block' : 'none';
 }
 
-// Cargar la cesta al iniciar
-document.addEventListener('DOMContentLoaded', mostrarCesta);
+function eliminarDeCesta(producto) {
+    let cesta = JSON.parse(localStorage.getItem('cesta')) || {};
+
+    if (cesta[producto]) {
+        delete cesta[producto];
+
+        localStorage.setItem('cesta', JSON.stringify(cesta));
+        mostrarCesta();
+    }
+}
