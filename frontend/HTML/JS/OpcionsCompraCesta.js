@@ -24,7 +24,7 @@ function mostrarCesta() {
         item.classList.add('producto-item');
         item.innerHTML = `
             <span>${productoID} - ${cantidad} x ${precio} €</span>
-            <button onclick="eliminarDeCesta('${productoID}')">Eliminar</button>
+            <button onclick="('${productoID}')">Eliminar</button>
         `;
         listaCesta.appendChild(item);
 
