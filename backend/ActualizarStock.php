@@ -1,63 +1,62 @@
 <?php
-// Conexión a la base de datos (reemplaza con tus credenciales)
-$servername = "bbdd.anticaroma.cat";  
-$username = "ddb236806";            
-$password = "Educem1.";         
-$dbname = "ddb236806";            
-$port = 3306;                     
+// Iniciar la conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ANTICAROMA";
 
-try {
-    $conn = new mysqli($servername, $username, $password, $dbname, $port);
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    if ($conn->connect_error) {
-        throw new Exception("Conexión fallida: " . $conn->connect_error);
-    }
-
-    if (!$conn->set_charset("utf8")) {
-        throw new Exception("Error al establecer el conjunto de caracteres: " . $conn->error);
-    }
-
-    echo "Conexión exitosa";
-
-} catch (Exception $e) {
-    echo "Error en la conexión: " . $e->getMessage();
+// Comprobar si la conexión fue exitosa
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Validar y sanitizar los datos enviados
-if (isset($_POST['producto']) && isset($_POST['cantidad'])) {
-    $producto = $conn->real_escape_string($_POST['producto']);
-    $cantidad = intval($_POST['cantidad']); // Asegurarse de que es un número entero
+// Obtener los datos enviados en la petición
+$data = json_decode(file_get_contents('php://input'), true);
 
-    // Consultar el stock y el precio actual del producto
-    $sql = "SELECT stock, preu FROM Productes WHERE nom = '$producto'";
-    $result = $conn->query($sql);
+// Verificar que los datos existen
+if (!isset($data['producto_id']) || !isset($data['cantidad'])) {
+    echo json_encode(['message' => 'Datos incompletos']);
+    exit;
+}
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $stock_actual = $row['stock'];
-        $precio_producto = $row['preu'];
+// Extraer los datos del JSON
+$producto_id = $data['producto_id'];
+$cantidad = $data['cantidad'];
 
-        // Verificar si hay suficiente stock disponible
-        if ($stock_actual >= $cantidad) {
-            // Actualizar el stock en la base de datos
-            $nuevo_stock = $stock_actual - $cantidad;
-            $sql_update = "UPDATE Productes SET stock = $nuevo_stock WHERE nom = '$producto'";
+// Comprobar el stock actual del producto
+$sql = "SELECT stock FROM Productes WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $producto_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-            if ($conn->query($sql_update) === TRUE) {
-                echo "Stock actualizado correctamente.";
-            } else {
-                echo "Error al actualizar el stock: " . $conn->error;
-            }
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $stock_actual = $row['stock'];
+
+    // Comprobar si hay suficiente stock
+    if ($stock_actual >= $cantidad) {
+        // Restar la cantidad del stock
+        $nuevo_stock = $stock_actual - $cantidad;
+        
+        $update_sql = "UPDATE Productes SET stock = ? WHERE id = ?";
+        $update_stmt = $conn->prepare($update_sql);
+        $update_stmt->bind_param("ii", $nuevo_stock, $producto_id);
+        
+        if ($update_stmt->execute()) {
+            echo json_encode(['message' => 'Stock actualizado correctamente']);
         } else {
-            echo "No hay suficiente stock disponible.";
+            echo json_encode(['message' => 'Error al actualizar el stock']);
         }
     } else {
-        echo "Producto no encontrado.";
+        echo json_encode(['message' => 'Stock insuficiente']);
     }
 } else {
-    echo "Datos incompletos.";
+    echo json_encode(['message' => 'Producto no encontrado']);
 }
 
-// Cerrar la conexión
 $conn->close();
 ?>

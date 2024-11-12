@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opcions Compra Pizzas</title>
+    <title>Opcions Compra</title>
     <link rel="stylesheet" href="./CSS/general.css">
     <link rel="stylesheet" href="./CSS/OpcionsCompra.css">
 </head>
+
 <body>
     <header>
         <section id="NavProductos">
@@ -20,12 +22,13 @@
     </header>
 
     <main>
-        <h1 id="titolPizzas">PIZZAS</h1>
+
+        <h1 id="titolPastas">PASTAS</h1>
         <section id="contenedorImagenes">
             <div id="producto1" class="productos">
-                <img src="./img/PizzaBianca.png" alt="pizza1">
-                <button class="boton" onclick="añadirACesta('PizzaBianca', 10)">Añadir a la cesta</button>
-                <select id="cantidadPizzaBianca" onchange="actualizarCantidad('PizzaBianca', this.value)">
+                <img src="./img/Pasta1.png" alt="Pasta 1">
+                <button class="boton" onclick="añadirACesta('Pasta1', 10)">Añadir a la cesta</button>
+                <select id="cantidadPasta1" onchange="actualizarCantidad('Pasta1', this.value)">
                     <option value="1">x1</option>
                     <option value="2">x2</option>
                     <option value="3">x3</option>
@@ -34,9 +37,9 @@
             </div>
 
             <div id="producto2" class="productos">
-                <img src="./img/Pizza4Formatge.png" alt="pizza2">
-                <button class="boton" onclick="añadirACesta('Pizza4Formatge', 12)">Añadir a la cesta</button>
-                <select id="cantidadPizza4Formatge" onchange="actualizarCantidad('Pizza4Formatge', this.value)">
+                <img src="./img/Pasta2.png" alt="Pasta 2">
+                <button class="boton" onclick="añadirACesta('Pasta2', 12)">Añadir a la cesta</button>
+                <select id="cantidadPasta2" onchange="actualizarCantidad('Pasta2', this.value)">
                     <option value="1">x1</option>
                     <option value="2">x2</option>
                     <option value="3">x3</option>
@@ -45,9 +48,9 @@
             </div>
 
             <div id="producto3" class="productos">
-                <img src="./img/PizzaBresaola.png" alt="pizza3">
-                <button class="boton" onclick="añadirACesta('PizzaPositiano', 11)">Añadir a la cesta</button>
-                <select id="cantidadPizzaPositiano" onchange="actualizarCantidad('PizzaPositiano', this.value)">
+                <img src="./img/Pasta3.png" alt="Pasta 3">
+                <button class="boton" onclick="añadirACesta('Pasta3', 14)">Añadir a la cesta</button>
+                <select id="cantidadPasta3" onchange="actualizarCantidad('Pasta3', this.value)">
                     <option value="1">x1</option>
                     <option value="2">x2</option>
                     <option value="3">x3</option>
@@ -56,42 +59,9 @@
             </div>
 
             <div id="producto4" class="productos">
-                <img src="./img/PizzaProscuito.png" alt="pizza4">
-                <button class="boton" onclick="añadirACesta('PizzaBresaola', 13)">Añadir a la cesta</button>
-                <select id="cantidadPizzaBresaola" onchange="actualizarCantidad('PizzaBresaola', this.value)">
-                    <option value="1">x1</option>
-                    <option value="2">x2</option>
-                    <option value="3">x3</option>
-                    <option value="4">x4</option>
-                </select>
-            </div>
-
-            <div id="producto5" class="productos">
-                <img src="./img/PizzaCapresse.png" alt="pizza5">
-                <button class="boton" onclick="añadirACesta('PizzaCapresse', 12)">Añadir a la cesta</button>
-                <select id="cantidadPizzaCapresse" onchange="actualizarCantidad('PizzaCapresse', this.value)">
-                    <option value="1">x1</option>
-                    <option value="2">x2</option>
-                    <option value="3">x3</option>
-                    <option value="4">x4</option>
-                </select>
-            </div>
-
-            <div id="producto6" class="productos">
-                <img src="./img/PizzaCapricciosa.png" alt="pizza6">
-                <button class="boton" onclick="añadirACesta('PizzaCapricciosa', 14)">Añadir a la cesta</button>
-                <select id="cantidadPizzaCapricciosa" onchange="actualizarCantidad('PizzaCapricciosa', this.value)">
-                    <option value="1">x1</option>
-                    <option value="2">x2</option>
-                    <option value="3">x3</option>
-                    <option value="4">x4</option>
-                </select>
-            </div>
-
-            <div id="producto7" class="productos">
-                <img src="./img/PizzaDiavola.png" alt="pizza7">
-                <button class="boton" onclick="añadirACesta('PizzaDiavola', 15)">Añadir a la cesta</button>
-                <select id="cantidadPizzaDiavola" onchange="actualizarCantidad('PizzaDiavola', this.value)">
+                <img src="./img/Pasta4.png" alt="Pasta 4">
+                <button class="boton" onclick="añadirACesta('Pasta4', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Pasta4', this.value)">
                     <option value="1">x1</option>
                     <option value="2">x2</option>
                     <option value="3">x3</option>
@@ -106,6 +76,9 @@
     </main>
 
     <footer></footer>
-    <script src="./JS/OpcionsCompraCesta.js"></script>
+    <script src="./JS/Pedido.js"></script>
+    <script src="./JS/añadirProducto.js"></script>
+
 </body>
+
 </html>

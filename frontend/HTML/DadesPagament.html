@@ -1,36 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Pago</title>
+    <title>Confirmación de Pedido</title>
     <link rel="stylesheet" href="./CSS/general.css">
-    <link rel="stylesheet" href="./CSS/Cesta.css">
-    <link rel="stylesheet" href="./CSS/DadesPagament.css">  
+    <link rel="stylesheet" href="./CSS/DadesPagament.css">
 </head>
 <body>
-    <div id="containerInputs">
-        <h2>Datos de Pago</h2>
-        <form id="formPago" onsubmit="return validarFormulario()">
-            <label for="InputNombre">Nombre</label>
-            <input type="text" id="InputNombre" name="nombre" required>
+    <header>
+        <section id="NavProductos">
+            <div class="botones-container">
+                <a href="./OpcionsCompraPizza.html" class="nav-link">PIZZAS</a>
+                <a href="./CestaCompra.html" class="nav-link">CESTA</a>
+            </div>
+        </section>
+    </header>
 
-            <label for="InputApellido">Apellidos</label>
-            <input type="text" id="InputApellido" name="apellidos" required>
+    <main>
+        <section id="pedido">
+            <h1>Formulario de Pedido</h1>
+            <form id="pedidoForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre y Apellido</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ejemplo: Juan Pérez">
+                </div>
 
-            <label for="InputEmail">Email</label>
-            <input type="email" id="InputEmail" name="email" required>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
+                </div>
 
-            <label for="InputNumeroTarjeta">Número de Tarjeta</label>
-            <input type="text" id="InputNumeroTarjeta" name="numeroTarjeta" pattern="[0-9]{16}" maxlength="16" required placeholder="16 dígitos sin espacios">
+                <div class="form-group">
+                    <label for="tarjeta">Número de Tarjeta</label>
+                    <input type="text" id="tarjeta" name="tarjeta" required placeholder="1234 5678 9876 5432">
+                </div>
 
-            <label for="NumeroCSV">CSV</label>
-            <input type="text" id="NumeroCSV" name="csv" pattern="[0-9]{3}" maxlength="3" required placeholder="3 dígitos">
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" required placeholder="123">
+                </div>
 
-            <button type="submit" id="botonPagar">Pagar</button>
-        </form>
-    </div>
+                <div class="form-group">
+                    <label for="fechaCaducidad">Fecha de Caducidad</label>
+                    <input type="month" id="fechaCaducidad" name="fechaCaducidad" required>
+                </div>
 
-    <script src="./JS/validacionPago.js"></script>  
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="Ejemplo: 600 123 456">
+                </div>
+
+                <div class="form-group">
+                    <label for="comentarios">Comentarios adicionales</label>
+                    <textarea id="comentarios" name="comentarios" placeholder="Escribe tus comentarios aquí..."></textarea>
+                </div>
+
+                <button type="submit" id="realizarPedido">Realizar Pedido</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Tu Restaurante</p>
+    </footer>
+
+    <script src="JS/Pedido.js"></script>
 </body>
 </html>
