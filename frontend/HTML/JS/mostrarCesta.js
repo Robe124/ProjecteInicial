@@ -10,22 +10,29 @@ function guardarCesta(cesta) {
 }
 
 // Función para añadir un producto a la cesta
-function añadirACesta(productoID, nombre, precio, cantidad) {
-    const cesta = obtenerCesta();  // Obtener la cesta actual
-    if (cesta[productoID]) {
-        // Si el producto ya está en la cesta, aumentamos la cantidad
-        cesta[productoID].cantidad += cantidad;
-    } else {
-        // Si no está, lo añadimos
-        cesta[productoID] = {
-            nombre: nombre,
-            cantidad: cantidad,
-            precio: precio
-        };
-    }
-    guardarCesta(cesta);  // Guardar la cesta actualizada
-    mostrarCesta();  // Mostrar la cesta actualizada
+// Función para añadir productos a la cesta
+function añadirACesta(nombreProducto, precioProducto) {
+    // Comprueba si el carrito ya existe en la sesión, si no, lo crea
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Obtén la cantidad seleccionada para el producto específico
+    const selectElement = document.getElementById(`cantidad${nombreProducto}`);
+    const cantidad = selectElement ? parseInt(selectElement.value) : 1;
+
+    // Crea el objeto producto con el nombre, precio y cantidad
+    const producto = {
+        nombre: nombreProducto,
+        precio: precioProducto,
+        cantidad: cantidad
+    };
+
+    // Añade el producto al carrito
+    carrito.push(producto);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    console.log(`Producto añadido: ${nombreProducto}, Precio: ${precioProducto}, Cantidad: ${cantidad}`);
 }
+
 
 // Función para eliminar un producto de la cesta
 function eliminarDeCesta(productoID) {
