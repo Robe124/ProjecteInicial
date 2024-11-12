@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DADES BotoPagament</title>
+    <title>Formulario de Pago</title>
     <link rel="stylesheet" href="./CSS/general.css">
     <link rel="stylesheet" href="./CSS/Cesta.css">
+    <link rel="stylesheet" href="./CSS/DadesPagament.css">  
 </head>
 <body>
-<div id="containerInputs">
-    <h3>Nombre </h3>
-    <input type="text" id="InputNombre">
-    <h3>Apellidos </h3>
-    <input type="text" id="InputApellido">
-    <h3>Email</h3>
-    <input type="email" id="InputEmail">
-    <h3>Numero tarjeta</h3>
-    <input type="number" id="InputNumeroTarjeta">
-    <h3>CSV</h3>
-    <input type="number" id="NumeroCSV">
-</div>
+    <div id="containerInputs">
+        <h2>Datos de Pago</h2>
+        <form id="formPago" onsubmit="return validarFormulario()">
+            <label for="InputNombre">Nombre</label>
+            <input type="text" id="InputNombre" name="nombre" required>
 
+            <label for="InputApellido">Apellidos</label>
+            <input type="text" id="InputApellido" name="apellidos" required>
+
+            <label for="InputEmail">Email</label>
+            <input type="email" id="InputEmail" name="email" required>
+
+            <label for="InputNumeroTarjeta">Número de Tarjeta</label>
+            <input type="text" id="InputNumeroTarjeta" name="numeroTarjeta" pattern="[0-9]{16}" maxlength="16" required placeholder="16 dígitos sin espacios">
+
+            <label for="NumeroCSV">CSV</label>
+            <input type="text" id="NumeroCSV" name="csv" pattern="[0-9]{3}" maxlength="3" required placeholder="3 dígitos">
+
+            <button type="submit" id="botonPagar">Pagar</button>
+        </form>
+    </div>
+
+    <script src="./JS/validacionPago.js"></script>  
 </body>
 </html>

@@ -20,12 +20,13 @@ function mostrarCesta() {
     let totalPrecio = 0;
 
     for (const [productoID, { cantidad, precio }] of Object.entries(cesta)) {
-        const item = document.createElement('div');
-        item.classList.add('producto-item');
-        item.innerHTML = `
-            <span>${productoID} - ${cantidad} x ${precio} €</span>
-            <button onclick="('${productoID}')">Eliminar</button>
-        `;
+         const item = document.getElementById('productoPlantilla').cloneNode(true);
+        item.style.display = 'block'; // Mostrar el elemento
+        item.querySelector('.producto-nombre').textContent = productoID;
+        item.querySelector('.producto-cantidad').textContent = cantidad;
+        item.querySelector('.producto-precio').textContent = precio;
+        item.querySelector('.btn-eliminar').setAttribute('onclick', `eliminarDeCesta('${productoID}')`);
+
         listaCesta.appendChild(item);
 
         totalProductos += cantidad;
@@ -42,8 +43,6 @@ function toggleCesta() {
 }
 
 function eliminarDeCesta(producto) {
-    let cesta = JSON.parse(localStorage.getItem('cesta')) || {};
-
     if (cesta[producto]) {
         delete cesta[producto];
 

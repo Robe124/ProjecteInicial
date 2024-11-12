@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opcions Compra Pizzas</title>
     <link rel="stylesheet" href="./CSS/general.css">
     <link rel="stylesheet" href="./CSS/Cesta.css">
-    <link rel="stylesheet" href="./CSS/OpcionsCompra.css">
 </head>
-
 <body>
     <header>
         <section id="NavProductos">
@@ -27,8 +24,10 @@
                 <span>🡇</span> Cesta
             </div>
             <div id="listaCesta" style="display: none;">
-                <button></button> BOTON PARA ELIMINAR CADA UNO DE LOS PRODUCTOS 
-                <!-- Aquí aparecerán los productos dinámicamente -->
+                 <div id="productoPlantilla" class="producto-item" style="display: none;">
+                    <span class="producto-nombre"></span> - <span class="producto-cantidad"></span> x <span class="producto-precio"></span> €
+                    <button class="btn-eliminar" onclick="eliminarDeCesta('')">Eliminar</button>
+                </div>
             </div>
         </div>
 
@@ -45,5 +44,4 @@
     <footer></footer>
     <script src="./JS/OpcionsCompraCesta.js"></script>
 </body>
-
 </html>
