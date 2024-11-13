@@ -1,38 +1,41 @@
 <?php
+include 'conexion.php'; // Archivo de conexión
 
-$host = 'localhost';
-$usuario = 'tu_usuario';
-$clave = 'tu_clave';
-$base_de_datos = 'tu_base_de_datos';
+// Obtener el ID del producto y la cantidad comprada desde la solicitud
+$producte_id = $_POST['producte_id'];
+$quantitat = $_POST['quantitat'];
 
-$conexion = new mysqli($host, $usuario, $clave, $base_de_datos);
+// Iniciar una transacción
+mysqli_begin_transaction($conn);
 
-if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
-}
-
-// Obtener los datos del cuerpo de la solicitud
-$datos = json_decode(file_get_contents('php://input'), true);
-
-if (isset($datos['productoID']) && isset($datos['cantidad'])) {
-    $productoID = $datos['productoID'];
-    $cantidad = $datos['cantidad'];
-
-    // Actualizar el stock en la base de datos
-    $query = "UPDATE productos SET stock = stock - ? WHERE id_producto = ?";
-    $stmt = $conexion->prepare($query);
-    $stmt->bind_param('ii', $cantidad, $productoID);
+try {
+    // Actualizar el stock en la tabla Productes
+    $sql_update_stock = "UPDATE Productes SET stock = stock - ? WHERE id = ? AND stock >= ?";
+    $stmt = $conn->prepare($sql_update_stock);
+    $stmt->bind_param('iii', $quantitat, $producte_id, $quantitat);
 
     if ($stmt->execute()) {
-        echo json_encode(['success' => true]);
+        // Insertar un nuevo pedido en la tabla Comandes
+        $sql_insert_order = "INSERT INTO Comandes (producte_id, quantitat, estat) VALUES (?, ?, 'Completado')";
+        $stmt_order = $conn->prepare($sql_insert_order);
+        $stmt_order->bind_param('ii', $producte_id, $quantitat);
+        $stmt_order->execute();
+
+        // Confirmar la transacción
+        mysqli_commit($conn);
+        echo "Compra completada y stock actualizado.";
     } else {
-        echo json_encode(['success' => false, 'error' => 'Error al actualizar el stock']);
+        // Revertir la transacción en caso de fallo
+        mysqli_rollback($conn);
+        echo "Error al actualizar el stock o realizar la compra.";
     }
 
-    $stmt->close();
-} else {
-    echo json_encode(['success' => false, 'error' => 'Datos faltantes']);
+} catch (Exception $e) {
+    // Revertir la transacción en caso de excepción
+    mysqli_rollback($conn);
+    echo "Error en la transacción: " . $e->getMessage();
 }
 
-$conexion->close();
+$stmt->close();
+$conn->close();
 ?>
