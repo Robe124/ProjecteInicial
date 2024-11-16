@@ -1,52 +1,51 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opcions Compra Pizzas</title>
-    <link rel="stylesheet" href="./CSS/general.css">
-    <link rel="stylesheet" href="./CSS/OpcionsCompra.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cesta de Compra</title>
 </head>
 <body>
-    <header>
-        <section id="NavProductos">
-            <div class="botones-container">
-                <a href="./OpcionsCompraBebidas.html" class="nav-link">BEBIDAS</a>
-                <a href="./OpcionsCompraPasta.html" class="nav-link">PASTAS</a>
-                <a href="./OpcionsCompraPizza.html" class="nav-link">PIZZAS</a>
-                <a href="./CestaCompra.html" class="nav-link">CESTA</a>
-            </div>
-        </section>
-    </header>
+  <h1>Cesta de Compra</h1>
+  <form id="formCestaCompra">
+    <div id="productosCesta">
+      <!-- Aquí se cargarán los productos dinámicamente -->
+    </div>
+    <input type="text" id="nombreCliente" name="cliente" placeholder="Tu nombre" required>
+    <input type="text" id="direccionCliente" name="direccion" placeholder="Tu dirección" required>
+    <button type="submit">Realizar Compra</button>
+  </form>
 
-    <main>
-        <div>
-            <div id="toggleCesta" onclick="toggleCesta()">
-                <span>🡇</span> Cesta
-            </div>
-             <div id="listaCesta" >
-                <div id="productoPlantilla" class="producto-item">
-                    <span class="producto-nombre"></span> 
-                    <span class="producto-cantidad"></span>
-                    <span class="producto-precio"></span>
-                    <button class="btn-eliminar" onclick="eliminarDeCesta('')">Eliminar</button>
-                </div>
-         </div>
-    
-        </div>
+  <script>
+    document.getElementById('formCestaCompra').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-        <div id="infoCarrito">
-            <span id="numeroProductos" style="display: none;">0</span>
-            <p id="InfoPrecio">Precio total: <span id="precioTotal">0 €</span></p>
-        </div>
+      const cliente = document.getElementById('nombreCliente').value;
+      const direccion = document.getElementById('direccionCliente').value;
 
-        <div>
-            <a href="./DadesPagament.html" class="nav-link" id="BotoPagament">PAGAR</a>
-        </div>
-    </main>
+      // Aquí debes cargar los productos seleccionados dinámicamente. Esto es un ejemplo:
+      const productos = [
+        { id: 1, cantidad: 2 }, // Producto con ID 1, cantidad 2
+        { id: 3, cantidad: 1 }  // Producto con ID 3, cantidad 1
+      ];
 
-    <footer></footer>
-    <script src="./JS/mostrarCesta.js"></script>
-    <script src="./JS/añadirProducto.js"></script>
+      // Enviar datos al backend
+      fetch('/procesarCompra.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cliente, direccion, productos })
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === 'success') {
+          alert('Compra realizada con éxito');
+        } else {
+          alert('Error en la compra: ' + data.message);
+        }
+      })
+      .catch((error) => console.error('Error:', error));
+    });
+  </script>
 </body>
 </html>
