@@ -42,4 +42,4 @@ function añadirACesta(productoID, precio) {
     .catch(error => console.error('Error de conexión:', error));
 }
 
- document.addEventListener('DOMContentLoaded', actualizarCesta);
+ 
