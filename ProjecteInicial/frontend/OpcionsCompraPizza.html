@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opcions Compra</title>
+    <link rel="stylesheet" href="./CSS/general.css">
+    <link rel="stylesheet" href="./CSS/OpcionsCompra.css">
+</head>
+
+<body>
+    <header>
+        <section id="NavProductos">
+            <div class="botones-container">
+                <a href="./OpcionsCompraBebidas.html" class="nav-link">BEBIDAS</a>
+                <a href="./OpcionsCompraPasta.html" class="nav-link">PASTAS</a>
+                <a href="./OpcionsCompraPizza.html" class="nav-link">PIZZAS</a>
+                <a href="./CestaCompra.html" class="nav-link">CESTA</a>
+            </div>
+        </section>
+    </header>
+
+    <main>
+
+        <h1 id="titolPastas">PASTAS</h1>
+        <section id="contenedorImagenes">
+            <div id="producto1" class="productos">
+                <img src="./img/PuzzaPositiano.png" alt="Positiano">
+                <button class="boton" onclick="añadirACesta('Positiano', 10)">Añadir a la cesta</button>
+                <select id="cantidadPasta1" onchange="actualizarCantidad('Positiano', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="producto2" class="productos">
+                <img src="./img/PizzaMargaritha.png" alt="Margaritha">
+                <button class="boton" onclick="añadirACesta('Margaritha', 12)">Añadir a la cesta</button>
+                <select id="cantidadPasta2" onchange="actualizarCantidad('Margaritha', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Salami" class="productos">
+                <img src="./img/PizzaSalami.png" alt="Salami">
+                <button class="boton" onclick="añadirACesta('Salami', 14)">Añadir a la cesta</button>
+                <select id="cantidadPasta3" onchange="actualizarCantidad('Salami', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Vesuvio" class="productos">
+                <img src="./img/PizzaVesuvio.png" alt="Vesuvio">
+                <button class="boton" onclick="añadirACesta('Vesuvio', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Vesuvio', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Bianca" class="productos">
+                <img src="./img/PizzaBianca.png" alt="Bianca">
+                <button class="boton" onclick="añadirACesta('Bianca', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Bianca', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Breasola" class="productos">
+                <img src="./img/PizzaBresaola.png" alt="Breasola">
+                <button class="boton" onclick="añadirACesta('Breasola', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Breasola', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="PizzaCapresse" class="productos">
+                <img src="./img/PizzaCapresse.png" alt="Capresse">
+                <button class="boton" onclick="añadirACesta('Capresse', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Capresse', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Capricciosa" class="productos">
+                <img src="./img/PizzaCapricciosa.png" alt="Capricciosa">
+                <button class="boton" onclick="añadirACesta('Capricciosa', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Capricciosa', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Diavola" class="productos">
+                <img src="./img/PizzaDiavola.png" alt="Diavola">
+                <button class="boton" onclick="añadirACesta('Diavola', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Diavola', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Tatrufo" class="productos">
+                <img src="./img/PizzaTatrufo.png" alt="Tatrufo">
+                <button class="boton" onclick="añadirACesta('Tatrufo', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Tatrufo', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="FrutiDiMare" class="productos">
+                <img src="./img/PizzaFrutiDiMare.png" alt="FrutiDiMare">
+                <button class="boton" onclick="añadirACesta('FrutiDiMare', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('FrutiDiMare', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Trufa" class="productos">
+                <img src="./img/PizzaTrufa.png" alt="Trufa">
+                <button class="boton" onclick="añadirACesta('Trufa', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Fungi', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+
+            <div id="Rosa" class="productos">
+                <img src="./img/PizzaRosa.png" alt="Rosa">
+                <button class="boton" onclick="añadirACesta('Rosa', 16)">Añadir a la cesta</button>
+                <select id="cantidadPasta4" onchange="actualizarCantidad('Rosa', this.value)">
+                    <option value="1">x1</option>
+                    <option value="2">x2</option>
+                    <option value="3">x3</option>
+                    <option value="4">x4</option>
+                </select>
+            </div>
+        </section>
+
+        <div>
+            <button id="BotonContinuar">CONTINUAR</button>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script src="./JS/añadirProducto.js"></script>
+    <script src="./JS/fetchStock.js" defer></script>
+
+</body>
+
+</html>
