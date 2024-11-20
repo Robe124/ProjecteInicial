@@ -1,10 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql2');
+import express from 'express';
+import cors from 'cors';
+import mysql from 'mysql2';
+
 
 const app = express();
 app.use(cors({
-    origin: 'https://anticaroma.cat', // Permite solicitudes solo desde tu dominio
+    origin: 'http://anticaroma.cat', 
     methods: ['GET', 'POST']
 }));
 
@@ -13,19 +14,18 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Educem00.', // Usa tu contraseña correcta
+    password: 'Educem00.', 
     database: 'antica_roma'
 });
 
 db.connect((err) => {
     if (err) {
         console.error('Error al conectar a la base de datos:', err);
-        return;
+        process.exit(1);
     }
-    console.log('Conectado a la base de datos');
+    console.log('Conectado a la base de datos.');
 });
 
-// Endpoint para obtener el stock
 app.get('/stock', (req, res) => {
     db.query('SELECT * FROM productos', (err, results) => {
         if (err) {
@@ -36,21 +36,23 @@ app.get('/stock', (req, res) => {
     });
 });
 
-// Endpoint para reducir el stock
 app.post('/comprar', (req, res) => {
     const { producto, cantidad } = req.body;
 
     if (!producto || !cantidad) {
+        console.error('Producto o cantidad no especificados');
         return res.status(400).json({ error: 'Producto o cantidad no especificados' });
     }
 
+    console.log('Intentando procesar compra:', { producto, cantidad });
     const query = 'UPDATE productos SET cantidad = cantidad - ? WHERE producto = ? AND cantidad >= ?';
     db.query(query, [cantidad, producto, cantidad], (err, result) => {
         if (err) {
-            console.error('Error al actualizar la cantidad:', err);
+            console.error('Error al actualizar el stock:', err);
             return res.status(500).json({ error: 'Error al procesar la compra' });
         }
 
+        console.log('Resultado de la actualización:', result);
         if (result.affectedRows === 0) {
             return res.status(400).json({ error: 'Stock insuficiente o producto no encontrado' });
         }
@@ -59,7 +61,6 @@ app.post('/comprar', (req, res) => {
     });
 });
 
-// Iniciar servidor
 app.listen(3000, () => {
     console.log('Servidor corriendo en http://anticaroma.cat');
 });

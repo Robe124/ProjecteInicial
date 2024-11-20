@@ -1,9 +1,9 @@
 async function obtenerStock() {
     try {
-        const response = await fetch('https://anticaroma.cat/stock'); // Cambiado a dominio
+        const response = await fetch('http://anticaroma.cat/stock');
         const stock = await response.json();
-        console.log(stock);
-        mostrarStock(stock);
+        console.log('Stock actualizado:', stock);
+        mostrarStock(stock);  
     } catch (error) {
         console.error('Error al obtener el stock:', error);
     }
@@ -11,7 +11,8 @@ async function obtenerStock() {
 
 async function comprarProducto(producto, cantidad) {
     try {
-        const response = await fetch('https://anticaroma.cat/comprar', { // Cambiado a dominio
+        console.log('Datos enviados al servidor:', { producto, cantidad });
+        const response = await fetch('http://anticaroma.cat/comprar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,3 +32,10 @@ async function comprarProducto(producto, cantidad) {
         alert('Error al realizar la compra.');
     }
 }
+
+ document.getElementById('botonFinalizarCompra').addEventListener('click', () => {
+    const producto = 'Margaritha';  
+    const cantidad = 2;  
+
+    comprarProducto(producto, cantidad);
+});

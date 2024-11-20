@@ -35,9 +35,9 @@ function añadirACesta(nombreProducto, precioProducto) {
 
 
 // Función para eliminar un producto de la cesta
-function eliminarDeCesta(productoID) {
+function eliminarDeCesta(nombreProducto) {
     const cesta = obtenerCesta();  // Obtener la cesta actual
-    delete cesta[productoID];  // Eliminar el producto
+    delete cesta[nombreProducto];  // Eliminar el producto
     guardarCesta(cesta);  // Guardar la cesta actualizada
     mostrarCesta();  // Mostrar la cesta actualizada
 }
@@ -62,7 +62,7 @@ function mostrarCesta() {
             item.classList.add('producto-item');
             
             item.innerHTML = `
-                <span class="producto-nombre">${nombre}</span>
+                <span class="producto-id">${productoID}</span>
                 <span class="producto-cantidad">${cantidad}</span>
                 <span class="producto-precio">${(cantidad * precio).toFixed(2)} €</span>
                 <button class="btn-eliminar" onclick="eliminarDeCesta('${productoID}')">Eliminar</button>
