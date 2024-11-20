@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opcions Compra Pizzas</title>
+    <link rel="stylesheet" href="./CSS/general.css">
+    <link rel="stylesheet" href="./CSS/OpcionsCompra.css">
+</head>
+<body>
+    <header>
+        <section id="NavProductos">
+            <div class="botones-container">
+                <a href="./OpcionsCompraBebidas.html" class="nav-link">BEBIDAS</a>
+                <a href="./OpcionsCompraPasta.html" class="nav-link">PASTAS</a>
+                <a href="./OpcionsCompraPizza.html" class="nav-link">PIZZAS</a>
+                <a href="./CestaCompra.html" class="nav-link">CESTA</a>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <div>
+            <div id="toggleCesta" onclick="toggleCesta()">
+                <span>🡇</span> Cesta
+            </div>
+             <div id="listaCesta" >
+                <div id="productoPlantilla" class="producto-item">
+                    <span class="producto-nombre"></span> 
+                    <span class="producto-cantidad"></span>
+                    <span class="producto-precio"></span>
+                    <button class="btn-eliminar" onclick="eliminarDeCesta('')">Eliminar</button>
+                </div>
+         </div>
+    
+        </div>
+
+        <div id="infoCarrito">
+            <span id="numeroProductos" style="display: none;">0</span>
+            <p id="InfoPrecio">Precio total: <span id="precioTotal">0 €</span></p>
+        </div>
+
+        <div>
+            <a href="./DadesPagament.html" class="nav-link" id="BotoPagament">PAGAR</a>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script src="./JS/mostrarCesta.js"></script>
+    <script src="./JS/añadirProducto.js"></script>
+</body>
+</html>

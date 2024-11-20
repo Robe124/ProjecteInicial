@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #1a1313;
+}
+
+header {
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #370900e0;
+    z-index: 1002;
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; 
+}
+
+nav ul li {
+    margin: 0 20px; 
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 0, 0, 0.131);
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #370900;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Estilos para el contenedor de la galería en mosaico */
+.mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-gap: 5px; /* Reducir el espacio entre las imágenes */
+    padding: 80px 10px 30px; /* Ajustar el padding para evitar superposición con el header */
+    max-width: 1200px; /* Ancho máximo del grid */
+    margin: 0 auto; /* Centrar el grid */
+}
+
+/* Ajuste de tamaños para crear variación de imágenes */
+.mosaic-grid .grid-item {
+    position: relative;
+    overflow: hidden; /* Evitar que las imágenes sobresalgan de los contenedores */
+}
+
+.mosaic-grid img {
+    width: 100%;
+    height: 100%; /* Asegurar que la imagen ocupe todo el contenedor */
+    object-fit: cover; /* Esto asegura que las imágenes llenen el espacio sin deformarse */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mosaic-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para variación de tamaños dentro del mosaico */
+.mosaic-grid .grid-item:nth-child(1) {
+    grid-column: span 2; /* Imagen que abarca dos columnas */
+    grid-row: span 2; /* Imagen que abarca dos filas */
+}
+
+.mosaic-grid .grid-item:nth-child(5),
+.mosaic-grid .grid-item:nth-child(9) {
+    grid-column: span 2; /* Otras imágenes destacadas */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .mosaic-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas más pequeñas */
+    }
+
+    .mosaic-grid .grid-item:nth-child(1),
+    .mosaic-grid .grid-item:nth-child(5),
+    .mosaic-grid .grid-item:nth-child(9) {
+        grid-column: span 2; /* Mantener las imágenes más grandes */
+    }
+}
+
+@media (max-width: 480px) {
+    .mosaic-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+    }
+
+    .mosaic-grid .grid-item {
+        grid-column: span 1;
+    }
+}

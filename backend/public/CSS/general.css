@@ -1,0 +1,165 @@
+main{
+  margin-top: 20px;
+}
+
+header {
+  color: white;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #370900e0;
+  z-index: 1002;
+  box-sizing: border-box;
+}
+
+nav {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 0, 0, 0.131);
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav {
+      justify-content: space-between;
+      padding: 0 20px;
+  }
+
+  .menu-toggle {
+      display: block;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      padding: 10px;
+      z-index: 1005;
+      position: relative;
+  }
+
+  nav ul {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgba(55, 9, 0, 0.9);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1004;
+  }
+
+  nav ul.show {
+      display: flex;
+  }
+
+  nav ul li {
+      margin: 20px 0;
+  }
+
+  nav ul li a {
+      font-size: 24px;
+      color: white;
+      text-decoration: none;
+  }
+
+  .no-scroll {
+      overflow: hidden;
+  }
+}
+
+footer {
+  background-color: #370900;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: 104px;
+}
+
+#NavProductos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.boton {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background-color: #45a049;
+}
+
+.productos {
+  text-align: center;
+  margin: 20px;
+}
+
+#toggleCesta {
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+#listaCesta {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#infoCarrito {
+  margin-bottom: 20px;
+}
