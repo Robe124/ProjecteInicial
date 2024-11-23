@@ -1,22 +1,32 @@
+import path from 'path';
+import * as url from 'url';
+
 import express from 'express';
 import cors from 'cors';
 import mysql from 'mysql2';
 
+const PROTOCOL = "http";
+const DOMAIN = "localhost";
+const HOST = PROTOCOL + "://" + DOMAIN;
+const PORT = 3000;
+
+const SERVER = HOST + ":" + PORT;
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = express();
 app.use(cors({
-    origin: 'localhost:3000', 
+    origin: SERVER, 
     methods: ['GET', 'POST']
 }));
 
 app.use(express.json());
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: DOMAIN,
     user: 'root',
-    password: 'Educem00.', 
+    password: '', 
     database: 'antica_roma'
 });
-
 app.use(express.static(__dirname+'/public'));
 
 db.connect((err) => {
@@ -62,6 +72,6 @@ app.post('/comprar', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Servidor corriendo en http://anticaroma.cat');
+app.listen(PORT, () => {
+    console.log("Servidor ejecutándose en " + SERVER);
 });
