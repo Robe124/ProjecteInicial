@@ -17,7 +17,7 @@ function añadirACesta(productoID, precio) {
         return;
     }
 
-    cesta[productoID] = { cantidad: cantidad, precio: precio };
+    cesta[productoID] = { cantidad, precio  };
     guardarCesta(cesta);
 
     alert("Producto añadido a la cesta");

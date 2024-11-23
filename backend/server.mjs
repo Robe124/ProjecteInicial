@@ -4,15 +4,10 @@ import * as url from 'url';
 import express from 'express';
 import cors from 'cors';
 import mysql from 'mysql2';
-
-const PROTOCOL = "http";
-const DOMAIN = "localhost";
-const HOST = PROTOCOL + "://" + DOMAIN;
-const PORT = 3000;
-
-const SERVER = HOST + ":" + PORT;
-
+import * as url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+console.log(__dirname);
 
 const app = express();
 app.use(cors({
@@ -27,7 +22,8 @@ const db = mysql.createConnection({
     password: '', 
     database: 'antica_roma'
 });
-app.use(express.static(__dirname+'/public'));
+
+app.use(express.static(__dirname+'public'));
 
 db.connect((err) => {
     if (err) {
@@ -105,6 +101,6 @@ app.post('/comprar', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log("Servidor ejecutándose en " + SERVER);
+app.listen(3000, () => {
+    console.log('Servidor corriendo en http://localhost:3000');
 });
