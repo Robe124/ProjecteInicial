@@ -1,0 +1,3 @@
+@echo off
+echo Ejecutando el servidor...
+node server.mjs

@@ -37,7 +37,38 @@ db.connect((err) => {
     console.log('Conectado a la base de datos.');
 });
 
+
+app.get('/', (req, res) => {
+    console.log("recabando información de la pizza del mes\n");
+    db.query('SELECT featured_pizza_id FROM featured_pizzas', (err, featured_pizzas) => {
+        if (err) {
+            console.error('Error al obtener el stock:', err);
+            return res.status(500).send('Error al obtener el stock');
+        }
+
+        //res.json(results);
+    });
+
+
+
+
+});
+
+app.patch('/update', (req, res) => {
+    console.log("updating product...");
+    const {id, cantidad} = req.body;
+
+    db.query('update productos set cantidad = cantidad - ' + cantidad + " where id = '" + id + "'", (err, results) => {
+        if (err) {
+            console.error('Error al obtener el stock:', err);
+            return res.status(500).send('Error al obtener el stock');
+        }
+        res.json(results);
+    });
+});
+
 app.get('/stock', (req, res) => {
+    console.log("seleccionando productos\n");
     db.query('SELECT * FROM productos', (err, results) => {
         if (err) {
             console.error('Error al obtener el stock:', err);
@@ -48,6 +79,8 @@ app.get('/stock', (req, res) => {
 });
 
 app.post('/comprar', (req, res) => {
+    console.log("comprando productos\n");
+    console.table(req.body);
     const { producto, cantidad } = req.body;
 
     if (!producto || !cantidad) {
