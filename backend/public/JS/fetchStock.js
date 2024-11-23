@@ -1,9 +1,8 @@
 async function obtenerStock() {
     try {
-        const response = await fetch('http://localhost/stock');
-        const stock = await response.json();
-        console.log('Stock actualizado:', stock);
-        mostrarStock(stock);  
+        const response = await fetch('http://localhost:3000/stock');
+        return await response.json();
+
     } catch (error) {
         console.error('Error al obtener el stock:', error);
     }
@@ -34,15 +33,15 @@ async function comprarProducto(producto, cantidad) {
 }
 
 // Agregar evento al botón después de que el DOM esté cargado
-const botonFinalizarCompra = document.getElementById('botonFinalizarCompra');
+// const botonFinalizarCompra = document.getElementById('botonFinalizarCompra');
 
-if (botonFinalizarCompra) {
-    botonFinalizarCompra.addEventListener('click', () => {
-        const producto = 'Margaritha';  
-        const cantidad = 2;  
+// if (botonFinalizarCompra) {
+//     botonFinalizarCompra.addEventListener('click', () => {
+//         const producto = 'Margaritha';  
+//         const cantidad = 2;  
 
-        comprarProducto(producto, cantidad);
-    });
-} else {
-    console.error("El elemento con ID 'botonFinalizarCompra' no existe.");
-}
+//         comprarProducto(producto, cantidad);
+//     });
+// // } else {
+// //     console.error("El elemento con ID 'botonFinalizarCompra' no existe.");
+// // }

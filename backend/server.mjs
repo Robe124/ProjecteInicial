@@ -1,7 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import mysql from 'mysql2';
+import * as url from 'url';
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
+console.log(__dirname);
 
 const app = express();
 app.use(cors({
@@ -17,7 +20,7 @@ const db = mysql.createConnection({
     database: 'antica_roma'
 });
 
-app.use(express.static(__dirname+'/public'));
+app.use(express.static(__dirname+'public'));
 
 db.connect((err) => {
     if (err) {
@@ -63,5 +66,5 @@ app.post('/comprar', (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log('Servidor corriendo en http://anticaroma.cat');
+    console.log('Servidor corriendo en http://localhost:3000');
 });
