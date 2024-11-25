@@ -1,6 +1,4 @@
 import path from 'path';
-import * as url from 'url';
-
 import express from 'express';
 import cors from 'cors';
 import mysql from 'mysql2';
@@ -11,15 +9,15 @@ console.log(__dirname);
 
 const app = express();
 app.use(cors({
-    origin: SERVER, 
-    methods: ['GET', 'POST']
+    origin: 'localhost', 
+    methods: ['GET', 'POST', 'PATCH']
 }));
 
 app.use(express.json());
 const db = mysql.createConnection({
-    host: DOMAIN,
+    host: 'localhost',
     user: 'root',
-    password: '', 
+    password: 'Educem00.', 
     database: 'antica_roma'
 });
 

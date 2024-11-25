@@ -25,9 +25,9 @@ function mostrarCatalogo(pizzas) {
         html += "<tr>"
         html += "<td>" + pizza.id + "</td>"
         html += "<td>" + pizza.producto + "</td>"
-        html += "<td>" + pizza.price + "</td>"
+        html += "<td>" + pizza.precio + "</td>"
         html += "<td>" + pizza.cantidad + "</td>"
-        html += "<td><img src='" + pizza.picture + "' height='75%' width='75%'/></td>"
+        html += "<td><img src='" + pizza.picture + "' height='75%' width='100%'/></td>"
         if (pizza.cantidad === 0) {
             html += "<td>sold out</td>";
         } else {
