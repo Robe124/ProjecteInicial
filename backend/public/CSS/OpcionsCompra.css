@@ -3,6 +3,24 @@
     gap: 15px;  
 }
 
+#botonPagament{
+background-color: #d24d0f;
+padding: 10px;
+color: white;
+border-radius: 10px;
+margin-left: 40%;
+text-decoration: none;
+}
+
+#botonPagament:hover{
+background-color: #55b71d;
+padding: 10px;
+color: white;
+border-radius: 10px;
+text-decoration: none;
+margin-left: 40%;
+}
+
 #NavProductos button {
     padding: 1px 0px;
     padding-top: 5px;
@@ -14,6 +32,27 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+body{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(63, 58, 41)), 
+    url('../img/HORNO-PIZZA.3.webp');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    position:relative;
+    transition: filter 0.5s ease, background-color 0.5s ease;
+    background-color: transparent;
+    background-attachment: fixed;
+}
+
+#titolPastas{
+    font-size: 45px;
+    font-family: 'Georgia', serif;
+    color: white;
+    margin-left: 130px;
 }
 
 #NavProductos {

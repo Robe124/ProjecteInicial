@@ -19,22 +19,23 @@ function mostrarCatalogo(pizzas) {
 
     .catalog-container {
         display: flex;
-        flex-wrap: wrap; /* Permite que las cartas pasen a la siguiente fila si no caben */
-        gap: 20px; /* Espacio entre las cartas */
-        justify-content: center; /* Centra las cartas horizontalmente */
+        flex-wrap: wrap; 
+        gap: 20px;  
+        justify-content: center; 
         padding: 20px;
     }
 
     .card {
+        margin: 80px;
         background-color: white;
         border: 1px solid #ccc;
-        border-radius: 10px; /* Bordes redondeados */
+        border-radius: 10px;  
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
         overflow: hidden;
-        width: calc(25% - 20px); /* Las cartas ocupan un 25% del ancho del contenedor, menos el gap */
-        min-width: 250px; /* Tamaño mínimo para pantallas pequeñas */
+        width: calc(25% - 20px); 
+        min-width: 250px;  
         display: flex;
-        flex-direction: column; /* Para que el contenido esté apilado verticalmente */
+        flex-direction: column;  
     }
 
     .card img {
@@ -109,6 +110,7 @@ function mostrarCatalogo(pizzas) {
                         pizza.cantidad === 0
                             ? "<span class='sold-out'>Sold Out</span>"
                             : `<select id="${pizza.id}" onchange='actualizarCantidad("${pizza.id}", this.value)'>
+                                    <option value="0">x0</option>
                                     <option value="1">x1</option>
                                     <option value="2">x2</option>
                                     <option value="3">x3</option>
