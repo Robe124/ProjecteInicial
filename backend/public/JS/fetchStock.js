@@ -42,13 +42,7 @@ async function obtenerStock() {
 async function comprarProducto(producto, cantidad) {
     try {
         console.log('Datos enviados al servidor:', { producto, cantidad });
-        /*const response = await fetch('http://anticaroma.cat/comprar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ producto, cantidad }),
-        });*/
+
         const response = await fetch('http://localhost:3000/comprar', {
             method: 'POST',
             headers: {
@@ -70,16 +64,3 @@ async function comprarProducto(producto, cantidad) {
     }
 }
 
-// Agregar evento al botón después de que el DOM esté cargado
-// const botonFinalizarCompra = document.getElementById('botonFinalizarCompra');
-
-// if (botonFinalizarCompra) {
-//     botonFinalizarCompra.addEventListener('click', () => {
-//         const producto = 'Margaritha';  
-//         const cantidad = 2;  
-
-//         comprarProducto(producto, cantidad);
-//     });
-// // } else {
-// //     console.error("El elemento con ID 'botonFinalizarCompra' no existe.");
-// // }
