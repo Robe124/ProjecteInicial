@@ -1,167 +1,113 @@
-#NavProductos .botones-container {
-    display: flex;
-    gap: 15px;  
-}
-
-#botonPagament{
-background-color: #d24d0f;
-padding: 10px;
-color: white;
-border-radius: 10px;
-margin-left: 40%;
-text-decoration: none;
-}
-
-#botonPagament:hover{
-background-color: #55b71d;
-padding: 10px;
-color: white;
-border-radius: 10px;
-text-decoration: none;
-margin-left: 40%;
-}
-
-#NavProductos button {
-    padding: 1px 0px;
-    padding-top: 5px;
-    padding-right: 12px;
-    padding-left: 10px;
-    border: none;
-    background-color: #d4826f;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-body{
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(63, 58, 41)), 
-    url('../img/HORNO-PIZZA.3.webp');
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 100vh;
-    top: 0;
-    position:relative;
-    transition: filter 0.5s ease, background-color 0.5s ease;
-    background-color: transparent;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
 }
 
-#titolPastas{
-    font-size: 45px;
-    font-family: 'Georgia', serif;
-    color: white;
-    margin-left: 130px;
-}
-
-#NavProductos {
+/* Header */
+header {
+    position: fixed; /* Fijo en la parte superior */
+    top: 0;
+    width: 100%;
+    background-color: black;
     display: flex;
     justify-content: center;
-    margin-bottom: -12px;
-    margin-top: -12px;
+    align-items: center;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Siempre encima del contenido */
 }
 
-main {
-    justify-content: center;
-    padding: 20px;
-    margin-top: 90px;
-}
-
-#contenedorImagenes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 600px;
-    margin-top: 30px;
-}
-
-
-
-.productos {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #ece4e4;
-}
-
-.productos img {
-    width: 100%;
-    height: auto;
-    max-width: 150px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.boton {
-    background-color: #4CAF50; /* Verde */
-    color: white;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.boton:hover {
-    background-color: #45a049;
-}
-
-#toggleCesta {
-    cursor: pointer;
-    background-color: #c35e5e;
-    padding: 10px;
-    border: 1px solid #ccc;
-    width: fit-content;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-h1{
-    margin-left: 38%;
-}
-
-#toggleCesta:hover {
-    background-color: #cc1818;
-}
-
-#listaCesta {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #fafafa;
-}
-
-#listaCesta li {
-    list-style-type: none;
-    margin: 5px 0;
-}
-
-#BotonContinuar{
-    margin-left: 160px;
-    margin-top: 40px;
-    color: white;
-    border-radius: 5px;
-    background-color: green;
-    padding: 5px;
+header .botones-container {
+    display: flex;
+    gap: 20px; /* Espaciado entre los botones */
 }
 
 .nav-link {
-    background-color: #975136;  
-    color: white; 
-    padding: 6px;
-    text-decoration: none; 
+    color: white;
+    text-decoration: none;
+    font-family: 'Georgia', serif;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
     border-radius: 5px;
-    display: inline-block; 
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #de731c; /* Color de fondo al pasar el ratón */
+    background-color: #141414; 
+    transform: scale(1.05);
 }
 
+main {
+    margin-top: 80px; 
+}
 
-#numeroProductos{
-    display: none;
+/* Título */
+#titolPastas {
+    font-size: 45px;
+    color: white;
+    text-align: center;
+    margin: 30px 0;
+    font-family: 'Georgia', serif;
+}
+
+ #carrito-toggle {
+    position: fixed;
+    top: 200px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e4d8be;    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Encima del contenido */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#carrito-toggle:hover {
+    background-color: #eaeaea;
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* Contenedor de imágenes */
+#contenedorImagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+footer a {
+    color: #e6b907;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }

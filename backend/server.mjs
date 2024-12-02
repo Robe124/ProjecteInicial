@@ -99,6 +99,33 @@ app.post('/comprar', (req, res) => {
     });
 });
 
+
+ 
+
+ app.patch('/stock/incrementar/:id', (req, res) => {
+    const { id } = req.params;
+    const { cantidad } = req.body; 
+
+    const query = 'UPDATE productos SET cantidad = cantidad + ? WHERE id = ?';
+    db.query(query, [cantidad, id], (err, results) => {
+        if (err) {
+            res.status(500).send(err);
+        } else if (results.affectedRows === 0) {
+            res.status(404).send({ message: 'Producto no encontrado' });
+        } else {
+            res.send({ message: 'Cantidad incrementada correctamente' });
+        }
+    });
+});
+
+
+
+
+
+
+
+//ESCUCHAR AL SERVIDOR 
+
 app.listen(3000, () => {
     console.log('Servidor corriendo en http://localhost:3000');
 });

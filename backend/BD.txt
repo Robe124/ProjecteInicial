@@ -1,5 +1,0 @@
-CREATE TABLE productos (
-    id VARCHAR(255) PRIMARY KEY,
-    producto VARCHAR(255) NOT NULL,
-    cantidad INT NOT NULL
-);
