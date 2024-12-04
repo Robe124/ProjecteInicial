@@ -119,11 +119,6 @@ app.post('/comprar', (req, res) => {
 });
 
 
-
-
-
-
-
 //ESCUCHAR AL SERVIDOR 
 
 app.listen(3000, () => {
