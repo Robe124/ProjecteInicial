@@ -20,13 +20,13 @@ async function actualizarCantidadPorProductoId(productId, cantidad) {
                 body: JSON.stringify({ id:productId, cantidad}),
               }
             );
-
         return  await response.json();        
     } catch (error) {
         console.error('Error al obtener las pizzas destacadas del mes:', error);
         return null;
     }
 }
+
 
 async function obtenerStock() {
     try {

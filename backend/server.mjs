@@ -100,8 +100,6 @@ app.post('/comprar', (req, res) => {
 });
 
 
- 
-
  app.patch('/stock/incrementar/:id', (req, res) => {
     const { id } = req.params;
     const { cantidad } = req.body; 
@@ -115,6 +113,31 @@ app.post('/comprar', (req, res) => {
         } else {
             res.send({ message: 'Cantidad incrementada correctamente' });
         }
+    });
+});
+
+
+app.post('/comandas', (req, res) => {
+    const { mesa, productos } = req.body;
+
+    if (!mesa || !productos || productos.length === 0) {
+        console.error('Datos incompletos:', { mesa, productos });
+        return res.status(400).json({ error: 'Número de mesa o productos no especificados' });
+    }
+
+    // Preparar los datos para la inserción
+    const detalles = productos.map(p => [mesa, p.id, p.cantidad]);
+    console.log('Detalles a insertar:', detalles);
+
+    const query = 'INSERT INTO comandas (mesa, producto_id, cantidad) VALUES ?';
+
+    // Insertar los datos en la base de datos
+    db.query(query, [detalles], (err) => {
+        if (err) {
+            console.error('Error al guardar la comanda en la base de datos:', err);
+            return res.status(500).json({ error: 'Error al guardar la comanda' });
+        }
+        res.json({ message: 'Comanda creada con éxito' });
     });
 });
 

@@ -259,6 +259,8 @@ function inicializarCarrito() {
     const carritoHtml = `
         <div id="carrito">
             <h3>Cistella de la compra</h3>
+            <label for="mesa">Número de Mesa:</label>
+            <input type="number" id="mesa" placeholder="Introduce el número de mesa" required>
             <ul id="carrito-lista"></ul>
             <p id="carrito-total">Total: 0.00€</p>
             <button onclick="finalizarCompra()">Acabar Comanda</button>
@@ -268,6 +270,7 @@ function inicializarCarrito() {
     document.body.insertAdjacentHTML('afterbegin', carritoHtml);
 }
 
+
 // Mostrar/ocultar carrito
 function toggleCarrito() {
     const carritoElement = document.getElementById("carrito");
@@ -275,48 +278,50 @@ function toggleCarrito() {
 }
 
 // Finalizar compra
+
 async function finalizarCompra() {
-    if (!validarCarrito()) {
-        alert("El carrito contiene productos inválidos o está vacío.");
+    const mesa = document.getElementById('mesa').value;
+
+    // Validar que el número de mesa y el carrito sean válidos
+    if (!mesa || carrito.length === 0) {
+        alert("Por favor, introduce el número de mesa y añade productos al carrito.");
         return;
     }
 
-    // Log para verificar el contenido del carrito antes de enviarlo
-    console.log('Carrito antes de enviar:', JSON.stringify(carrito, null, 2));
+    console.log('Carrito a enviar:', JSON.stringify(carrito, null, 2));
+    console.log('Número de mesa:', mesa);
 
-    // Enviar los datos del carrito al servidor para procesar la compra
     try {
-        for (const item of carrito) {
-            const response = await fetch('/comprar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: item.id,
-                    producto: item.producto,
-                    cantidad: item.cantidad,
-                    precio: item.precio
-                })
-            });
+        const response = await fetch('http://localhost:3000/comandas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                mesa: parseInt(mesa),
+                productos: carrito, // Enviar el carrito completo
+            }),
+        });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.error('Error en la respuesta del servidor:', errorData);
-                alert(`Hubo un error al procesar la compra: ${errorData.error || 'Error desconocido'}`);
-                return;
-            }
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.error('Error en la respuesta del servidor:', data);
+            alert(`Error al procesar la comanda: ${data.error || 'Error desconocido'}`);
+            return;
         }
 
-        alert("Compra realizada con éxito");
-        carrito = [];
-        actualizarCarrito();
-        window.location.href = 'index.html';
+        alert("Comanda registrada con éxito. Volviendo al menú principal...");
+        carrito = []; // Limpiar el carrito
+        actualizarCarrito(); // Refrescar la vista del carrito
+        window.location.href = 'index.html'; // Redirigir al menú principal
     } catch (error) {
         console.error('Error al finalizar la compra:', error);
-        alert("Hubo un error al procesar la compra");
+        alert("Hubo un error al procesar la comanda.");
     }
 }
+
+
 
 // Validar el carrito antes de finalizar la compra
 function validarCarrito() {

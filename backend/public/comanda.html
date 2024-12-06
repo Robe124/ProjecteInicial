@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandas</title>
+    <link rel="stylesheet" href="CSS/comanda.css">
+</head>
+<body>
+    <h1>Listado de Comandas</h1>
+    <table id="tabla-comandas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mesa</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se insertarán las comandas dinámicamente -->
+        </tbody>
+    </table>
+
+    <!-- Los scripts -->
+    <script src="JS/mostrarComandas.js" defer></script>
+    <script>
+        // Validar el acceso
+        const usuario = localStorage.getItem('rol'); // Por ejemplo, "empleado" o "cliente"
+        if (usuario !== 'empleado') {
+            alert('Acceso no autorizado. Volviendo al menú principal...');
+            window.location.href = 'index.html'; // Redirigir a index si no es empleado
+        }
+    </script>
+    
+</body>
+</html>
