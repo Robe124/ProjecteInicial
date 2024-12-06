@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock de Productos</title>
+    <link rel="stylesheet" href="./CSS/stock.css">
+</head>
+<body>
+    <header>
+        <h1>Stock de Productos</h1>
+    </header>
+    <main>
+        <section id="productos">
+            <!-- Los productos se cargarán dinámicamente aquí -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Antica Roma. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        // Obtener los productos del servidor
+        async function cargarProductos() {
+            try {
+                const response = await fetch('http://localhost:3000/stock');
+                if (!response.ok) {
+                    throw new Error('Error al obtener los datos del stock');
+                }
+                const productos = await response.json();
+                mostrarProductos(productos);
+            } catch (error) {
+                console.error('Error al cargar los productos:', error);
+            }
+        }
+
+        // Mostrar los productos en la página
+        function mostrarProductos(productos) {
+            const contenedor = document.getElementById('productos');
+            productos.forEach(producto => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h2>${producto.producto}</h2>
+                    <p>Stock disponible: <span class="stock">${producto.cantidad}</span></p>
+                `;
+                contenedor.appendChild(card);
+            });
+        }
+
+        // Llamar a la función al cargar la página
+        document.addEventListener('DOMContentLoaded', cargarProductos);
+    </script>
+</body>
+</html>

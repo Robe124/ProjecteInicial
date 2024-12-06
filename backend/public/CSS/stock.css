@@ -1,0 +1,79 @@
+/* Paleta cálida con degradados y bordes redondeados */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #FCE3D8, #FFCBA4);
+    color: #4D4D4D;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #FF8A5B, #FF6F61);
+    color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    padding: 40px 20px; /* Más espacio alrededor del contenido */
+    display: flex;
+    justify-content: center;
+}
+
+#productos {
+    display: grid;
+    gap: 40px; /* Más espacio entre las tarjetas */
+    width: 100%;
+    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px; /* Espacio adicional alrededor de cada tarjeta */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+    color: #FF6F61;
+}
+
+.card p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.card .stock {
+    font-weight: bold;
+    color: #FF8A5B;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #FFCBA4;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    color: #4D4D4D;
+    font-size: 0.9rem;
+}
