@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f4f9, #e0e0eb);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+h1 {
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+#tabla-comandas {
+    width: 90%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #ffffff, #f9f9ff);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#tabla-comandas thead {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+#tabla-comandas th, #tabla-comandas td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#tabla-comandas th {
+    font-size: 1.2rem;
+}
+
+#tabla-comandas td {
+    position: relative;
+}
+
+#tabla-comandas tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#tabla-comandas tr:hover {
+    background-color: #f1f1f1;
+}
+
+.delete-btn {
+    color: white;
+    background: #ff4d4d;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+    background: #e60000;
+}
+
+@media (max-width: 768px) {
+    #tabla-comandas {
+        font-size: 0.9rem;
+    }
+
+    #tabla-comandas th, #tabla-comandas td {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

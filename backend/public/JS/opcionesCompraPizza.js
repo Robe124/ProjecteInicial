@@ -1,7 +1,6 @@
 // Archivo: opcionesCompraPizza.js
 
 document.addEventListener('DOMContentLoaded', async function() {
-    /* Llamar al servidor para que te dé la colección de productos.*/
     const pizzas = await obtenerStock();
     mostrarCatalogo(pizzas);
     inicializarCarrito();
@@ -228,14 +227,12 @@ function añadirAlCarritoDesdeCatalogo(pizza) {
         if (productoEnCarrito.cantidad < pizza.cantidad) {
             productoEnCarrito.cantidad++;
         } else {
-            alert('No hay suficiente stock para añadir más unidades de este producto.');
-            return;
+            alert('No hay suficiente stock');
         }
     } else {
         carrito.push({ id: pizza.id, producto: pizza.producto, precio: precio, cantidad: 1 });
     }
     actualizarCarrito();
-    alert(`${pizza.producto} añadido al carrito`);
 }
 
 // Actualizar el contenido del carrito en la vista
@@ -282,15 +279,12 @@ function toggleCarrito() {
 async function finalizarCompra() {
     const mesa = document.getElementById('mesa').value;
 
-    // Validar que el número de mesa y el carrito sean válidos
     if (!mesa || carrito.length === 0) {
         alert("Por favor, introduce el número de mesa y añade productos al carrito.");
         return;
     }
 
-    console.log('Carrito a enviar:', JSON.stringify(carrito, null, 2));
-    console.log('Número de mesa:', mesa);
-
+    // Enviar la comanda al servidor
     try {
         const response = await fetch('http://localhost:3000/comandas', {
             method: 'POST',
@@ -305,21 +299,25 @@ async function finalizarCompra() {
 
         const data = await response.json();
 
-        if (!response.ok) {
-            console.error('Error en la respuesta del servidor:', data);
-            alert(`Error al procesar la comanda: ${data.error || 'Error desconocido'}`);
-            return;
-        }
+        if (response.ok) {
+            // Actualizar el stock de cada producto en la base de datos
+            for (const item of carrito) {
+                await actualizarCantidadPorProductoId(item.id, item.cantidad); // Llama aquí a la función
+            }
 
-        alert("Comanda registrada con éxito. Volviendo al menú principal...");
-        carrito = []; // Limpiar el carrito
-        actualizarCarrito(); // Refrescar la vista del carrito
-        window.location.href = 'index.html'; // Redirigir al menú principal
+            alert("Comanda registrada con éxito.");
+            carrito = []; // Limpiar el carrito
+            actualizarCarrito(); // Refrescar la vista del carrito
+            window.location.href = 'index.html'; // Redirigir al menú principal
+        } else {
+            alert(`Error al registrar la comanda: ${data.error}`);
+        }
     } catch (error) {
         console.error('Error al finalizar la compra:', error);
-        alert("Hubo un error al procesar la comanda.");
+        alert("Error al registrar la comanda.");
     }
 }
+
 
 
 

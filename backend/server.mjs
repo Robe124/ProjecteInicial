@@ -31,38 +31,54 @@ db.connect((err) => {
     console.log('Conectado a la base de datos.');
 });
 
-
+// Ruta para obtener información básica
 app.get('/', (req, res) => {
-    console.log("recabando información de la pizza del mes\n");
+    console.log("Recabando información de la pizza del mes\n");
     db.query('SELECT featured_pizza_id FROM featured_pizzas', (err, featured_pizzas) => {
         if (err) {
             console.error('Error al obtener el stock:', err);
             return res.status(500).send('Error al obtener el stock');
         }
-
-        //res.json(results);
+        res.json(featured_pizzas);
     });
-
-
-
-
 });
 
+// Ruta para actualizar el stock de productos
 app.patch('/update', (req, res) => {
-    console.log("updating product...");
-    const {id, cantidad} = req.body;
+    console.log("PATCH /update - Actualizando producto");
+    const { id, cantidad } = req.body;
 
-    db.query('update productos set cantidad = cantidad - ' + cantidad + " where id = '" + id + "'", (err, results) => {
-        if (err) {
-            console.error('Error al obtener el stock:', err);
-            return res.status(500).send('Error al obtener el stock');
+    if (!id || cantidad === undefined) {
+        console.error("Datos incompletos:", req.body);
+        return res.status(400).json({ error: 'Faltan datos: id o cantidad no proporcionados' });
+    }
+
+    // Consulta SQL actualizada para tratar id como VARCHAR
+    db.query(
+        'UPDATE productos SET cantidad = cantidad - ? WHERE id = ? AND cantidad >= ?',
+        [cantidad, id, cantidad],
+        (err, results) => {
+            if (err) {
+                console.error('Error al actualizar el stock:', err);
+                return res.status(500).json({ error: 'Error al actualizar el stock' });
+            }
+
+            if (results.affectedRows === 0) {
+                console.warn('No se encontró el producto o stock insuficiente:', req.body);
+                return res.status(400).json({ error: 'Producto no encontrado o stock insuficiente' });
+            }
+
+            console.log('Stock actualizado correctamente:', results);
+            res.json({ message: 'Stock actualizado' });
         }
-        res.json(results);
-    });
+    );
 });
 
+
+
+// Ruta para obtener el stock de productos
 app.get('/stock', (req, res) => {
-    console.log("seleccionando productos\n");
+    console.log("Seleccionando productos\n");
     db.query('SELECT * FROM productos', (err, results) => {
         if (err) {
             console.error('Error al obtener el stock:', err);
@@ -72,9 +88,11 @@ app.get('/stock', (req, res) => {
     });
 });
 
+// Ruta para procesar compras y actualizar el stock
 app.post('/comprar', (req, res) => {
-    console.log("comprando productos\n");
+    console.log("Procesando compra...");
     console.table(req.body);
+
     const { producto, cantidad } = req.body;
 
     if (!producto || !cantidad) {
@@ -82,7 +100,6 @@ app.post('/comprar', (req, res) => {
         return res.status(400).json({ error: 'Producto o cantidad no especificados' });
     }
 
-    console.log('Intentando procesar compra:', { producto, cantidad });
     const query = 'UPDATE productos SET cantidad = cantidad - ? WHERE producto = ? AND cantidad >= ?';
     db.query(query, [cantidad, producto, cantidad], (err, result) => {
         if (err) {
@@ -90,7 +107,6 @@ app.post('/comprar', (req, res) => {
             return res.status(500).json({ error: 'Error al procesar la compra' });
         }
 
-        console.log('Resultado de la actualización:', result);
         if (result.affectedRows === 0) {
             return res.status(400).json({ error: 'Stock insuficiente o producto no encontrado' });
         }
@@ -99,10 +115,10 @@ app.post('/comprar', (req, res) => {
     });
 });
 
-
- app.patch('/stock/incrementar/:id', (req, res) => {
+// Ruta para incrementar el stock de un producto
+app.patch('/stock/incrementar/:id', (req, res) => {
     const { id } = req.params;
-    const { cantidad } = req.body; 
+    const { cantidad } = req.body;
 
     const query = 'UPDATE productos SET cantidad = cantidad + ? WHERE id = ?';
     db.query(query, [cantidad, id], (err, results) => {
@@ -116,7 +132,7 @@ app.post('/comprar', (req, res) => {
     });
 });
 
-
+// Ruta para registrar comandas
 app.post('/comandas', (req, res) => {
     const { mesa, productos } = req.body;
 
@@ -125,13 +141,9 @@ app.post('/comandas', (req, res) => {
         return res.status(400).json({ error: 'Número de mesa o productos no especificados' });
     }
 
-    // Preparar los datos para la inserción
     const detalles = productos.map(p => [mesa, p.id, p.cantidad]);
-    console.log('Detalles a insertar:', detalles);
 
     const query = 'INSERT INTO comandas (mesa, producto_id, cantidad) VALUES ?';
-
-    // Insertar los datos en la base de datos
     db.query(query, [detalles], (err) => {
         if (err) {
             console.error('Error al guardar la comanda en la base de datos:', err);
@@ -141,9 +153,17 @@ app.post('/comandas', (req, res) => {
     });
 });
 
+app.get('/comandas', (req, res) => {
+    db.query('SELECT * FROM comandas', (err, results) => {
+        if (err) {
+            console.error('Error al obtener las comandas:', err);
+            return res.status(500).send('Error al obtener las comandas');
+        }
+        res.json(results);
+    });
+});
 
-//ESCUCHAR AL SERVIDOR 
-
+// Escuchar al servidor
 app.listen(3000, () => {
     console.log('Servidor corriendo en http://localhost:3000');
 });
