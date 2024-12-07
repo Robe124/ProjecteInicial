@@ -1,6 +1,4 @@
-main{
-  margin-top: 20px;
-}
+
 
 body{
   background: url('../img/HORNO-PIZZA.3.webp');
@@ -132,7 +130,6 @@ footer {
   text-align: center;
   padding: 10px 0;
   width: 100%;
-  margin-top: 104px;
 }
 
 #NavProductos {
