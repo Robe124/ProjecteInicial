@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 let carrito = [];
 
-// Obtener el stock de productos desde el servidor
 async function obtenerStock() {
     try {
         const response = await fetch('/stock');
@@ -24,8 +23,7 @@ async function obtenerStock() {
     }
 }
 
-// Mostrar el catálogo de productos
-function mostrarCatalogo(pizzas) {
+ function mostrarCatalogo(pizzas) {
     const style = document.createElement("style");
     style.textContent = `
     body {
@@ -218,7 +216,6 @@ function mostrarCatalogo(pizzas) {
     contenedorImagenes.innerHTML = html;
 }
 
-// Añadir producto al carrito desde el catálogo
 function añadirAlCarritoDesdeCatalogo(pizza) {
     const productoEnCarrito = carrito.find(item => item.id === pizza.id);
     const precio = parseFloat(pizza.precio); // Convertir precio a número
@@ -235,8 +232,7 @@ function añadirAlCarritoDesdeCatalogo(pizza) {
     actualizarCarrito();
 }
 
-// Actualizar el contenido del carrito en la vista
-function actualizarCarrito() {
+ function actualizarCarrito() {
     const carritoLista = document.getElementById("carrito-lista");
     carritoLista.innerHTML = "";
     let total = 0;
@@ -284,8 +280,7 @@ async function finalizarCompra() {
         return;
     }
 
-    // Enviar la comanda al servidor
-    try {
+     try {
         const response = await fetch('http://localhost:3000/comandas', {
             method: 'POST',
             headers: {
@@ -293,22 +288,21 @@ async function finalizarCompra() {
             },
             body: JSON.stringify({
                 mesa: parseInt(mesa),
-                productos: carrito, // Enviar el carrito completo
+                productos: carrito,  
             }),
         });
 
         const data = await response.json();
 
         if (response.ok) {
-            // Actualizar el stock de cada producto en la base de datos
-            for (const item of carrito) {
-                await actualizarCantidadPorProductoId(item.id, item.cantidad); // Llama aquí a la función
+             for (const item of carrito) {
+                await actualizarCantidadPorProductoId(item.id, item.cantidad);  
             }
 
             alert("Comanda registrada con éxito.");
-            carrito = []; // Limpiar el carrito
-            actualizarCarrito(); // Refrescar la vista del carrito
-            window.location.href = 'index.html'; // Redirigir al menú principal
+            carrito = []; 
+            actualizarCarrito();  
+            window.location.href = 'index.html';  
         } else {
             alert(`Error al registrar la comanda: ${data.error}`);
         }
@@ -321,8 +315,7 @@ async function finalizarCompra() {
 
 
 
-// Validar el carrito antes de finalizar la compra
-function validarCarrito() {
+ function validarCarrito() {
     if (!carrito || carrito.length === 0) {
         return false;
     }

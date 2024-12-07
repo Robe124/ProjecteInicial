@@ -9,7 +9,7 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(135deg, #FF8A5B, #FF6F61);
+    background: linear-gradient(135deg, #662717, #FF6F61);
     color: white;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -22,14 +22,14 @@ header h1 {
 }
 
 main {
-    padding: 40px 20px; /* Más espacio alrededor del contenido */
+    padding: 40px 20px;  
     display: flex;
     justify-content: center;
 }
 
 #productos {
     display: grid;
-    gap: 40px; /* Más espacio entre las tarjetas */
+    gap: 40px;  
     width: 100%;
     max-width: 1200px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -42,7 +42,7 @@ main {
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 10px; /* Espacio adicional alrededor de cada tarjeta */
+    margin: 10px; 
 }
 
 .card:hover {
