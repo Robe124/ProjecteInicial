@@ -125,11 +125,22 @@ nav ul li a:hover {
 }
 
 footer {
-  background-color: #370900;
+  background-color: rgb(12, 12, 12);
   color: white;
   text-align: center;
-  padding: 10px 0;
-  width: 100%;
+  padding: 40px;
+  margin-top: auto;
+  font-size: 14px;
+  line-height: 1.5;
+ }
+
+footer a {
+  color: #e6b907;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 #NavProductos {

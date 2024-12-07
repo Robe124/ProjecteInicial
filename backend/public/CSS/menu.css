@@ -1,3 +1,4 @@
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -12,59 +13,96 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
- 
 
-main {
-  flex: 1;
+header {
   padding: 20px;
-  background-color: #000000;
-  align-content: center;
+  background-color: #370900;
+  text-align: center;
+  color: white;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #ff6347;
+}
+
+/* Language Selection Section */
+.language-selection {
+  text-align: center;
+  padding: 230px 20px;
+}
+
+.language-selection h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.language-selection p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
 .flex-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  justify-items: center;
-  margin: 50px auto;
-  width: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .circle {
-  width: 200px;
-  height: 200px;
-  border-radius: 20%;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #370900;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
+  color: white;
 }
 
 .circle img {
-  width: 162%;
+  width: 100%;
   height: auto;
 }
 
- 
-
-#circle1 img{
-  margin-top: -8px;
+.circle span {
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-#circle2 img{
-  margin-top: -7px;
+.circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
-#circle3 img{
-  margin-left: -60px;
-}
-
-#circle4 img{
-  margin-left: -60px;
-}
-
-@media (max-width: 565px) {
-
-  .flex-container{
-    display: float;
-  }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #370900;
+  color: white;
+  margin-top: auto;
 }
